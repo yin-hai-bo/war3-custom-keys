@@ -131,6 +131,15 @@ namespace yhb_war3_custom_keys {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The &apos;Hotkey&apos; define not found..
+        /// </summary>
+        internal static string S_HOTKEY_DEFINE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("S_HOTKEY_DEFINE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid line..
         /// </summary>
         internal static string S_INVALID_LINE {
@@ -140,7 +149,7 @@ namespace yhb_war3_custom_keys {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Line {}.
+        ///   Looks up a localized string similar to Line.
         /// </summary>
         internal static string S_LINE {
             get {

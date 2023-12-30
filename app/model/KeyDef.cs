@@ -3,10 +3,11 @@
 namespace yhb_war3_custom_keys.model {
     internal class KeyDef {
 
-        private readonly Regex REGEX = new(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline);
+        private static readonly Regex REGEX = new(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline);
 
         internal readonly string Key;
-        private readonly Dictionary<string, string> _map = new();
+
+        private readonly List<IItem> _items = new();
 
         internal KeyDef(string key) {
             this.Key = key;
@@ -19,13 +20,14 @@ namespace yhb_war3_custom_keys.model {
                     break;
                 }
                 if (parser.IsEmptyOrCommentLine(line)) {
+                    _items.Add(new CommentLine(line));
                     continue;
                 }
                 var match = REGEX.Match(line);
                 if (match.Success) {
-                    var key = match.Groups[0].Value;
-                    var value = match.Groups[1].Value.Trim();
-                    _map[key] = value;
+                    var key = match.Groups[1].Value;
+                    var value = match.Groups[2].Value.Trim();
+                    _items.Add(new KeyValue(key, value));
                 } else if (parser.GetSectionName(line) != null) {
                     reader.MoveBackLine(line);
                     break;
