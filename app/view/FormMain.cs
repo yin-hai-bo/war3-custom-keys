@@ -13,6 +13,7 @@ namespace yhb_war3_custom_keys{
         }
 
         private void FormMain_Load(object sender, EventArgs e) {
+            this.Text = Resources.S_APP_NAME;
         }
     }
 }

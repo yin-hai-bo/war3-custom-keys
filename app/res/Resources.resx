@@ -121,6 +121,9 @@
   <data name="CustomKeysSample" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>CustomKeysSample.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="FormMain.Text" xml:space="preserve">
+    <value>Warcraft III Custom Keys Editor</value>
+  </data>
   <data name="S_APP_NAME" xml:space="preserve">
     <value>Warcraft III Custom Keys Editor</value>
   </data>

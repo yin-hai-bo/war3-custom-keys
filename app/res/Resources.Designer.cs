@@ -104,6 +104,15 @@ namespace yhb_war3_custom_keys.res {
         /// <summary>
         ///   Looks up a localized string similar to Warcraft III Custom Keys Editor.
         /// </summary>
+        internal static string FormMain_Text {
+            get {
+                return ResourceManager.GetString("FormMain.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warcraft III Custom Keys Editor.
+        /// </summary>
         internal static string S_APP_NAME {
             get {
                 return ResourceManager.GetString("S_APP_NAME", resourceCulture);

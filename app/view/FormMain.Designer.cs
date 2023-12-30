@@ -23,19 +23,70 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            mainMenu = new MenuStrip();
+            fileMenu = new ToolStripMenuItem();
+            newMenu = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            openMenu = new ToolStripMenuItem();
+            saveMenu = new ToolStripMenuItem();
+            mainMenu.SuspendLayout();
             SuspendLayout();
+            // 
+            // mainMenu
+            // 
+            mainMenu.ImageScalingSize = new Size(20, 20);
+            mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu });
+            resources.ApplyResources(mainMenu, "mainMenu");
+            mainMenu.Name = "mainMenu";
+            // 
+            // fileMenu
+            // 
+            fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newMenu, toolStripSeparator1, openMenu, saveMenu });
+            fileMenu.Name = "fileMenu";
+            resources.ApplyResources(fileMenu, "fileMenu");
+            // 
+            // newMenu
+            // 
+            newMenu.Name = "newMenu";
+            resources.ApplyResources(newMenu, "newMenu");
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // openMenu
+            // 
+            openMenu.Name = "openMenu";
+            resources.ApplyResources(openMenu, "openMenu");
+            // 
+            // saveMenu
+            // 
+            saveMenu.Name = "saveMenu";
+            resources.ApplyResources(saveMenu, "saveMenu");
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            Controls.Add(mainMenu);
+            MainMenuStrip = mainMenu;
             Name = "FormMain";
-            Text = "Form1";
             Load += FormMain_Load;
+            mainMenu.ResumeLayout(false);
+            mainMenu.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip mainMenu;
+        private ToolStripMenuItem fileMenu;
+        private ToolStripMenuItem newMenu;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem openMenu;
+        private ToolStripMenuItem saveMenu;
     }
 }
