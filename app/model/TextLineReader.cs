@@ -5,13 +5,13 @@
         private readonly TextReader _reader;
         private readonly LinkedList<string> _lines = new();
 
-        internal int NextLine { get; private set; }
+        public int NextLine { get; private set; }
 
         public TextLineReader(string text) {
             _reader = new StringReader(text);
         }
 
-        internal string? ReadLine(bool trim = true) {
+        public string? ReadLine(bool trim = true) {
             ++NextLine;
             var node = _lines.First;
             if (node != null) { 
@@ -31,7 +31,7 @@
             this._reader.Dispose();
         }
 
-        internal void MoveBackLine(string line) {
+        public void MoveBackLine(string line) {
             _lines.AddLast(line);
             --NextLine;
         }

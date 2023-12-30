@@ -23,11 +23,14 @@ namespace yhb_war3_custom_keys.model {
                 }
                 var match = REGEX.Match(line);
                 if (match.Success) {
-                    _map[match.Groups[0].Value] = match.Groups[1].Value.Trim();
+                    var key = match.Groups[0].Value;
+                    var value = match.Groups[1].Value.Trim();
+                    _map[key] = value;
                 } else if (parser.GetSectionName(line) != null) {
                     reader.MoveBackLine(line);
+                    break;
                 } else {
-                    throw new CustomKeysParser.Exception(reader.NextLine, "Invalid line.");
+                    throw new CustomKeysParser.Exception(reader.NextLine, Resources.S_INVALID_LINE);
                 }
             }
         }

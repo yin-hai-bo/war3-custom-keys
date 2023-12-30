@@ -10,11 +10,7 @@ namespace yhb_war3_custom_keys.model {
 
         public class Exception : IOException {
             public Exception(int lineNumber, string msg)
-                : base($"Line ${lineNumber}: {msg}") { }
-        }
-
-        public void WriteDebugLog(TextLineReader reader, string msg) {
-            Debug.WriteLine($"Line #{reader.NextLine}: {msg}");
+                : base($"{Resources.S_LINE} {lineNumber}: {msg}") { }
         }
 
         public bool IsEmptyOrCommentLine(string trimedLine) {

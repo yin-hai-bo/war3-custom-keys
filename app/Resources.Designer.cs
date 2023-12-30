@@ -93,11 +93,85 @@ namespace yhb_war3_custom_keys {
         ///Tip=(|cffffcc00B|r)建造建筑物
         ///Hotkey=B
         ///
-        /////建造建 [rest of string was truncated]&quot;;.
+        /////建造建筑物（人类）
+        ///[CmdBuildHuman]
+        ///Tip=(|cff [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CustomKeysSample {
             get {
                 return ResourceManager.GetString("CustomKeysSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warcraft III Custom Keys Editor.
+        /// </summary>
+        internal static string S_APP_NAME {
+            get {
+                return ResourceManager.GetString("S_APP_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string S_CANCEL {
+            get {
+                return ResourceManager.GetString("S_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string S_ERROR {
+            get {
+                return ResourceManager.GetString("S_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid line..
+        /// </summary>
+        internal static string S_INVALID_LINE {
+            get {
+                return ResourceManager.GetString("S_INVALID_LINE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Line {}.
+        /// </summary>
+        internal static string S_LINE {
+            get {
+                return ResourceManager.GetString("S_LINE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string S_OK {
+            get {
+                return ResourceManager.GetString("S_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The section define expected..
+        /// </summary>
+        internal static string S_SECTION_DEFINE_EXPECTED {
+            get {
+                return ResourceManager.GetString("S_SECTION_DEFINE_EXPECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string S_WARNING {
+            get {
+                return ResourceManager.GetString("S_WARNING", resourceCulture);
             }
         }
     }
