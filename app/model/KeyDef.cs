@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using yhb_war3_custom_keys.res;
 
 namespace yhb_war3_custom_keys.model {
     internal class KeyDef : IElement {

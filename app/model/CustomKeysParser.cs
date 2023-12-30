@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using yhb_war3_custom_keys.res;
+using System.Text.RegularExpressions;
 
 namespace yhb_war3_custom_keys.model {
     public class CustomKeysParser {

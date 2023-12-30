@@ -1,18 +1,10 @@
-﻿namespace yhb_war3_custom_keys.model {
+﻿using yhb_war3_custom_keys.res;
+
+namespace yhb_war3_custom_keys.model {
 
     internal class KeyDefines {
 
         private readonly List<IElement> _elements = new();
-
-        public static KeyDefines DefaultInstance { get; private set; }
-
-        public static void CreateoDefaultInstance() {
-            DefaultInstance = CreateFromString(Resources.CustomKeysSample);
-
-            using (StreamWriter writer = new(new FileStream("c:\\temp\\tmp.txt", FileMode.Truncate))) {
-                DefaultInstance.Serialize(writer);
-            }
-        }
 
         private KeyDefines() { }
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace yhb_war3_custom_keys {
+namespace yhb_war3_custom_keys.res {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace yhb_war3_custom_keys {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("yhb_war3_custom_keys.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("yhb_war3_custom_keys.res.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -93,9 +93,7 @@ namespace yhb_war3_custom_keys {
         ///Tip=(|cffffcc00B|r)建造建筑物
         ///Hotkey=B
         ///
-        /////建造建筑物（人类）
-        ///[CmdBuildHuman]
-        ///Tip=(|cff [rest of string was truncated]&quot;;.
+        /////建造建 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CustomKeysSample {
             get {
