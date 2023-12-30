@@ -1,5 +1,5 @@
 ﻿namespace yhb_war3_custom_keys.model {
-    internal class KeyValue : IItem {
+    internal class KeyValue : IElement {
         public readonly string Key;
         public readonly string Value;
 
@@ -8,14 +8,14 @@
             this.Value = value;
         }
 
-        bool IItem.GetKeyValue(out string? key, out string? value) {
+        public bool GetKeyValue(out string? key, out string? value) {
             key = this.Key;
             value = this.Value;
             return true;
         }
 
-        void IItem.Serialize(TextWriter writer) {
-            writer.Write($"{this.Key}={this.Value}");
+        public void Serialize(TextWriter writer) {
+            writer.WriteLine($"{this.Key}={this.Value}");
         }
     }
 }

@@ -1,16 +1,16 @@
 ﻿using System.Text.RegularExpressions;
 
 namespace yhb_war3_custom_keys.model {
-    internal class KeyDef {
+    internal class KeyDef : IElement {
 
         private static readonly Regex REGEX = new(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline);
 
-        internal readonly string Key;
+        internal readonly string Name;
 
-        private readonly List<IItem> _items = new();
+        private readonly List<IElement> _items = new();
 
-        internal KeyDef(string key) {
-            this.Key = key;
+        internal KeyDef(string name) {
+            this.Name = name;
         }
 
         internal void LoadFromReader(TextLineReader reader, CustomKeysParser parser) {
@@ -35,6 +35,19 @@ namespace yhb_war3_custom_keys.model {
                     throw new CustomKeysParser.Exception(reader.NextLine, Resources.S_INVALID_LINE);
                 }
             }
+        }
+
+        public void Serialize(TextWriter writer) {
+            writer.WriteLine($"[{Name}]");
+            foreach (var item in _items) {
+                item.Serialize(writer);
+            }
+        }
+
+        public bool GetKeyValue(out string? key, out string? value) {
+            key = null;
+            value = null;
+            return false;
         }
     }
 }

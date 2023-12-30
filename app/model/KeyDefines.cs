@@ -2,12 +2,16 @@
 
     internal class KeyDefines {
 
-        private readonly List<KeyDef> _defineList = new(128);
+        private readonly List<IElement> _elements = new();
 
         public static KeyDefines DefaultInstance { get; private set; }
 
         public static void CreateoDefaultInstance() {
             DefaultInstance = CreateFromString(Resources.CustomKeysSample);
+
+            using (StreamWriter writer = new(new FileStream("c:\\temp\\tmp.txt", FileMode.Truncate))) {
+                DefaultInstance.Serialize(writer);
+            }
         }
 
         private KeyDefines() { }
@@ -28,6 +32,7 @@
                     break;
                 }
                 if (parser.IsEmptyOrCommentLine(line)) {
+                    _elements.Add(new CommentLine(line));
                     continue;
                 }
                 string? sectionName = parser.GetSectionName(line);
@@ -36,7 +41,13 @@
                 }
                 KeyDef keyDef = new(sectionName);
                 keyDef.LoadFromReader(reader, parser);
-                _defineList.Add(keyDef);
+                _elements.Add(keyDef);
+            }
+        }
+
+        public void Serialize(TextWriter writer) {
+            foreach (var e in _elements) {
+                e.Serialize(writer);
             }
         }
     }

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace yhb_war3_custom_keys.model {
-    internal class CommentLine : IItem {
+﻿namespace yhb_war3_custom_keys.model {
+    internal class CommentLine : IElement {
 
         private readonly string _content;
 
