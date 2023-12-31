@@ -32,17 +32,16 @@
             saveMenu = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             panel1 = new Panel();
+            tabControlMain = new TabControl();
+            tabHuman = new TabPage();
+            tabOrc = new TabPage();
+            tabUndead = new TabPage();
+            tabNightElve = new TabPage();
+            tabCommon = new TabPage();
             toolStrip1 = new ToolStrip();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            GroupTreeView = new TreeView();
-            keyDefineListView = new ListView();
             mainMenu.SuspendLayout();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel4.SuspendLayout();
+            tabControlMain.SuspendLayout();
             SuspendLayout();
             // 
             // mainMenu
@@ -86,46 +85,57 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(tabControlMain);
             panel1.Controls.Add(toolStrip1);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
+            // 
+            // tabControlMain
+            // 
+            resources.ApplyResources(tabControlMain, "tabControlMain");
+            tabControlMain.Controls.Add(tabHuman);
+            tabControlMain.Controls.Add(tabOrc);
+            tabControlMain.Controls.Add(tabUndead);
+            tabControlMain.Controls.Add(tabNightElve);
+            tabControlMain.Controls.Add(tabCommon);
+            tabControlMain.Name = "tabControlMain";
+            tabControlMain.SelectedIndex = 0;
+            // 
+            // tabHuman
+            // 
+            resources.ApplyResources(tabHuman, "tabHuman");
+            tabHuman.Name = "tabHuman";
+            tabHuman.UseVisualStyleBackColor = true;
+            // 
+            // tabOrc
+            // 
+            resources.ApplyResources(tabOrc, "tabOrc");
+            tabOrc.Name = "tabOrc";
+            tabOrc.UseVisualStyleBackColor = true;
+            // 
+            // tabUndead
+            // 
+            resources.ApplyResources(tabUndead, "tabUndead");
+            tabUndead.Name = "tabUndead";
+            tabUndead.UseVisualStyleBackColor = true;
+            // 
+            // tabNightElve
+            // 
+            resources.ApplyResources(tabNightElve, "tabNightElve");
+            tabNightElve.Name = "tabNightElve";
+            tabNightElve.UseVisualStyleBackColor = true;
+            // 
+            // tabCommon
+            // 
+            resources.ApplyResources(tabCommon, "tabCommon");
+            tabCommon.Name = "tabCommon";
+            tabCommon.UseVisualStyleBackColor = true;
             // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
             resources.ApplyResources(toolStrip1, "toolStrip1");
             toolStrip1.Name = "toolStrip1";
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(panel4);
-            panel2.Controls.Add(panel3);
-            resources.ApplyResources(panel2, "panel2");
-            panel2.Name = "panel2";
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(GroupTreeView);
-            resources.ApplyResources(panel3, "panel3");
-            panel3.Name = "panel3";
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(keyDefineListView);
-            resources.ApplyResources(panel4, "panel4");
-            panel4.Name = "panel4";
-            // 
-            // GroupTreeView
-            // 
-            resources.ApplyResources(GroupTreeView, "GroupTreeView");
-            GroupTreeView.Name = "GroupTreeView";
-            // 
-            // keyDefineListView
-            // 
-            resources.ApplyResources(keyDefineListView, "keyDefineListView");
-            keyDefineListView.Name = "keyDefineListView";
-            keyDefineListView.UseCompatibleStateImageBehavior = false;
             // 
             // FormMain
             // 
@@ -141,9 +151,7 @@
             mainMenu.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel4.ResumeLayout(false);
+            tabControlMain.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,11 +166,12 @@
         private ToolStripMenuItem saveMenu;
         private StatusStrip statusStrip1;
         private Panel panel1;
-        private Panel panel2;
-        private Panel panel4;
-        private Panel panel3;
         private ToolStrip toolStrip1;
-        private ListView keyDefineListView;
-        private TreeView GroupTreeView;
+        private TabControl tabControlMain;
+        private TabPage tabHuman;
+        private TabPage tabOrc;
+        private TabPage tabUndead;
+        private TabPage tabNightElve;
+        private TabPage tabCommon;
     }
 }
