@@ -42,5 +42,14 @@ namespace yhb_war3_custom_keys.model {
                 e.Serialize(writer);
             }
         }
+
+        public KeyDef? GetSection(string sectionName) {
+            foreach (var e in _elements) {
+                if (e.SectionName == sectionName) {
+                    return e as KeyDef;
+                }
+            }
+            return null;
+        }
     }
 }

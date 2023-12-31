@@ -8,14 +8,12 @@
             this.Value = value;
         }
 
-        public bool GetKeyValue(out string? key, out string? value) {
-            key = this.Key;
-            value = this.Value;
-            return true;
-        }
-
         public void Serialize(TextWriter writer) {
             writer.WriteLine($"{this.Key}={this.Value}");
         }
+
+        string? IElement.Key => this.Key;
+        string? IElement.Value => this.Value;
+        public string? SectionName => null;
     }
 }

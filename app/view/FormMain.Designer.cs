@@ -46,48 +46,48 @@
             // 
             // mainMenu
             // 
+            resources.ApplyResources(mainMenu, "mainMenu");
             mainMenu.ImageScalingSize = new Size(20, 20);
             mainMenu.Items.AddRange(new ToolStripItem[] { fileMenu });
-            resources.ApplyResources(mainMenu, "mainMenu");
             mainMenu.Name = "mainMenu";
             // 
             // fileMenu
             // 
+            resources.ApplyResources(fileMenu, "fileMenu");
             fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newMenu, toolStripSeparator1, openMenu, saveMenu });
             fileMenu.Name = "fileMenu";
-            resources.ApplyResources(fileMenu, "fileMenu");
             // 
             // newMenu
             // 
-            newMenu.Name = "newMenu";
             resources.ApplyResources(newMenu, "newMenu");
+            newMenu.Name = "newMenu";
             // 
             // toolStripSeparator1
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(toolStripSeparator1, "toolStripSeparator1");
+            toolStripSeparator1.Name = "toolStripSeparator1";
             // 
             // openMenu
             // 
-            openMenu.Name = "openMenu";
             resources.ApplyResources(openMenu, "openMenu");
+            openMenu.Name = "openMenu";
             // 
             // saveMenu
             // 
-            saveMenu.Name = "saveMenu";
             resources.ApplyResources(saveMenu, "saveMenu");
+            saveMenu.Name = "saveMenu";
             // 
             // statusStrip1
             // 
-            statusStrip1.ImageScalingSize = new Size(20, 20);
             resources.ApplyResources(statusStrip1, "statusStrip1");
+            statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Name = "statusStrip1";
             // 
             // panel1
             // 
+            resources.ApplyResources(panel1, "panel1");
             panel1.Controls.Add(tabControlMain);
             panel1.Controls.Add(toolStrip1);
-            resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
             // 
             // tabControlMain
@@ -133,8 +133,8 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.ImageScalingSize = new Size(20, 20);
             resources.ApplyResources(toolStrip1, "toolStrip1");
+            toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Name = "toolStrip1";
             // 
             // FormMain

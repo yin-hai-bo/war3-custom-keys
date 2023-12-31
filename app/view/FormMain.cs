@@ -9,11 +9,12 @@ namespace yhb_war3_custom_keys{
 
         public FormMain() {
             InitializeComponent();
-            _defaultKeyDefines = KeyDefines.CreateFromString(Resources.CustomKeysSample);
+            _defaultKeyDefines = KeyDefines.CreateFromString(Resources.CustomKeysSample_cn);
         }
 
         private void FormMain_Load(object sender, EventArgs e) {
             this.Text = Resources.S_APP_NAME;
+            new KeyDefineGui(this.tabCommon, _defaultKeyDefines);
         }
     }
 }

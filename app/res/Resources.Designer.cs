@@ -62,6 +62,35 @@ namespace yhb_war3_custom_keys.res {
         
         /// <summary>
         ///   Looks up a localized string similar to //////////////////////////////////////////////////////
+        /////This file includes all racial units, heroes, 
+        /////upgrades, buildings and abilities.  Please consult 
+        /////CustomKeyInfo.txt for information on how to go about
+        /////using this file for customized hotkey support.
+        /////////////////////////////////////////////////////////
+        ///
+        ///
+        ////////////////////////////////
+        /////Shared Commands (attack, etc.)
+        ////////////////////////////////
+        ///
+        /////move
+        ///[CmdMove]
+        ///Tip=|cffffcc00M|rove
+        ///Hotkey=M
+        ///
+        /////attack
+        ///[CmdAttack]
+        ///Tip=|cffffcc00A|rttack
+        ///Hotkey=A [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CustomKeysSample {
+            get {
+                return ResourceManager.GetString("CustomKeysSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //////////////////////////////////////////////////////
         /////这个文件包含所有的单位、英雄、
         /////升级、建筑物和技能。请
         /////参考CustomKeyInfo.txt来获取关于如何使用
@@ -95,9 +124,9 @@ namespace yhb_war3_custom_keys.res {
         ///
         /////建造建 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string CustomKeysSample {
+        internal static string CustomKeysSample_cn {
             get {
-                return ResourceManager.GetString("CustomKeysSample", resourceCulture);
+                return ResourceManager.GetString("CustomKeysSample_cn", resourceCulture);
             }
         }
         

@@ -7,14 +7,12 @@
             this._content = content;
         }
 
-        public bool GetKeyValue(out string? key, out string? value) {
-            key = null;
-            value = null;
-            return false;
-        }
-
         public void Serialize(TextWriter writer) {
             writer.WriteLine(this._content);
         }
+
+        public string? Key => null;
+        public string? Value => null;
+        public string? SectionName => null;
     }
 }

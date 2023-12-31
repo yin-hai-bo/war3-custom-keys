@@ -45,10 +45,17 @@ namespace yhb_war3_custom_keys.model {
             }
         }
 
-        public bool GetKeyValue(out string? key, out string? value) {
-            key = null;
-            value = null;
-            return false;
+        public string? Key => null;
+        public string? Value => null;
+        public string? SectionName => this.Name;
+
+        public string? Find(string key) {
+            foreach (var item in _items) {
+                if (item.Key == key) { 
+                    return item.Value;
+                }
+            }
+            return null;
         }
     }
 }
