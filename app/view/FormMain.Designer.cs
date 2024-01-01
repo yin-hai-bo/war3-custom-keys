@@ -31,6 +31,7 @@
             openMenu = new ToolStripMenuItem();
             saveMenu = new ToolStripMenuItem();
             tabControlMain = new TabControl();
+            tabHumanHeroes = new TabPage();
             tabHuman = new TabPage();
             tabOrc = new TabPage();
             tabUndead = new TabPage();
@@ -76,6 +77,7 @@
             // tabControlMain
             // 
             resources.ApplyResources(tabControlMain, "tabControlMain");
+            tabControlMain.Controls.Add(tabHumanHeroes);
             tabControlMain.Controls.Add(tabHuman);
             tabControlMain.Controls.Add(tabOrc);
             tabControlMain.Controls.Add(tabUndead);
@@ -84,11 +86,17 @@
             tabControlMain.Name = "tabControlMain";
             tabControlMain.SelectedIndex = 0;
             // 
+            // tabHumanHeroes
+            // 
+            tabHumanHeroes.BackColor = Color.Black;
+            resources.ApplyResources(tabHumanHeroes, "tabHumanHeroes");
+            tabHumanHeroes.Name = "tabHumanHeroes";
+            // 
             // tabHuman
             // 
-            tabHuman.BackColor = Color.Black;
             resources.ApplyResources(tabHuman, "tabHuman");
             tabHuman.Name = "tabHuman";
+            tabHuman.UseVisualStyleBackColor = true;
             // 
             // tabOrc
             // 
@@ -125,6 +133,7 @@
             MainMenuStrip = mainMenu;
             Name = "FormMain";
             Load += FormMain_Load;
+            Shown += FormMain_Shown;
             mainMenu.ResumeLayout(false);
             mainMenu.PerformLayout();
             tabControlMain.ResumeLayout(false);
@@ -141,10 +150,11 @@
         private ToolStripMenuItem openMenu;
         private ToolStripMenuItem saveMenu;
         private TabControl tabControlMain;
-        private TabPage tabHuman;
+        private TabPage tabHumanHeroes;
         private TabPage tabOrc;
         private TabPage tabUndead;
         private TabPage tabNightElve;
         private TabPage tabCommon;
+        private TabPage tabHuman;
     }
 }

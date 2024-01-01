@@ -122,20 +122,20 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="newMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>202, 26</value>
   </data>
   <data name="newMenu.Text" xml:space="preserve">
     <value>&amp;New</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 6</value>
+    <value>199, 6</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="openMenu.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+O</value>
   </data>
   <data name="openMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>202, 26</value>
   </data>
   <data name="openMenu.Text" xml:space="preserve">
     <value>&amp;Open...</value>
@@ -144,7 +144,7 @@
     <value>Ctrl+S</value>
   </data>
   <data name="saveMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
+    <value>202, 26</value>
   </data>
   <data name="saveMenu.Text" xml:space="preserve">
     <value>&amp;Save</value>
@@ -183,18 +183,42 @@
   <data name="tabControlMain.Appearance" type="System.Windows.Forms.TabAppearance, System.Windows.Forms">
     <value>Buttons</value>
   </data>
-  <data name="tabHuman.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabHumanHeroes.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 32</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabHuman.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="tabHumanHeroes.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabHumanHeroes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1021, 465</value>
+  </data>
+  <data name="tabHumanHeroes.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabHumanHeroes.Text" xml:space="preserve">
+    <value>Human Heroes</value>
+  </data>
+  <data name="&gt;&gt;tabHumanHeroes.Name" xml:space="preserve">
+    <value>tabHumanHeroes</value>
+  </data>
+  <data name="&gt;&gt;tabHumanHeroes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabHumanHeroes.Parent" xml:space="preserve">
+    <value>tabControlMain</value>
+  </data>
+  <data name="&gt;&gt;tabHumanHeroes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabHuman.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 32</value>
   </data>
   <data name="tabHuman.Size" type="System.Drawing.Size, System.Drawing">
     <value>1021, 465</value>
   </data>
   <data name="tabHuman.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>5</value>
   </data>
   <data name="tabHuman.Text" xml:space="preserve">
     <value>Human</value>
@@ -209,7 +233,7 @@
     <value>tabControlMain</value>
   </data>
   <data name="&gt;&gt;tabHuman.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="tabOrc.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 32</value>
@@ -236,7 +260,7 @@
     <value>tabControlMain</value>
   </data>
   <data name="&gt;&gt;tabOrc.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="tabUndead.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 32</value>
@@ -260,7 +284,7 @@
     <value>tabControlMain</value>
   </data>
   <data name="&gt;&gt;tabUndead.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="tabNightElve.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 32</value>
@@ -284,7 +308,7 @@
     <value>tabControlMain</value>
   </data>
   <data name="&gt;&gt;tabNightElve.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="tabCommon.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 32</value>
@@ -308,7 +332,7 @@
     <value>tabControlMain</value>
   </data>
   <data name="&gt;&gt;tabCommon.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="tabControlMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -345,6 +369,9 @@
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Warcraft III custom keys editor</value>
   </data>
   <data name="&gt;&gt;fileMenu.Name" xml:space="preserve">
     <value>fileMenu</value>

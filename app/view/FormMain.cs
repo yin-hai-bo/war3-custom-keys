@@ -13,10 +13,12 @@ namespace yhb_war3_custom_keys{
         }
 
         private void FormMain_Load(object sender, EventArgs e) {
-            
-            this.Text = Resources.S_APP_NAME;
+            new KeyDefineGui(_defaultKeyDefines, tabHumanHeroes, KeyDefinesGroup.HUMAN_HERO_ENTRIES);
+            new KeyDefineGui(_defaultKeyDefines, this.tabCommon, KeyDefinesGroup.COMMON_ENTRIES);
+        }
 
-            new KeyDefineGui(this.tabCommon, _defaultKeyDefines);
+        private void FormMain_Shown(object sender, EventArgs e) {
+
         }
     }
 }

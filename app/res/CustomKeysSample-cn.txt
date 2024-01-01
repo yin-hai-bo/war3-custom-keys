@@ -518,7 +518,7 @@ Researchhotkey=B
 
 //凤凰
 [AHpx]
-Tip= (|cffffcc00x|)凤凰
+Tip= (|cffffcc00x|r)凤凰
 Hotkey=X
 Researchtip= (|cffffcc00x|r)学习凤凰
 Researchhotkey=X
