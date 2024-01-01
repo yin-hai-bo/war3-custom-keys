@@ -31,14 +31,7 @@
             openMenu = new ToolStripMenuItem();
             saveMenu = new ToolStripMenuItem();
             tabControlMain = new TabControl();
-            tabHumanHeroes = new TabPage();
-            tabHuman = new TabPage();
-            tabOrc = new TabPage();
-            tabUndead = new TabPage();
-            tabNightElve = new TabPage();
-            tabCommon = new TabPage();
             mainMenu.SuspendLayout();
-            tabControlMain.SuspendLayout();
             SuspendLayout();
             // 
             // mainMenu
@@ -77,50 +70,8 @@
             // tabControlMain
             // 
             resources.ApplyResources(tabControlMain, "tabControlMain");
-            tabControlMain.Controls.Add(tabHumanHeroes);
-            tabControlMain.Controls.Add(tabHuman);
-            tabControlMain.Controls.Add(tabOrc);
-            tabControlMain.Controls.Add(tabUndead);
-            tabControlMain.Controls.Add(tabNightElve);
-            tabControlMain.Controls.Add(tabCommon);
             tabControlMain.Name = "tabControlMain";
             tabControlMain.SelectedIndex = 0;
-            // 
-            // tabHumanHeroes
-            // 
-            tabHumanHeroes.BackColor = Color.Black;
-            resources.ApplyResources(tabHumanHeroes, "tabHumanHeroes");
-            tabHumanHeroes.Name = "tabHumanHeroes";
-            // 
-            // tabHuman
-            // 
-            resources.ApplyResources(tabHuman, "tabHuman");
-            tabHuman.Name = "tabHuman";
-            tabHuman.UseVisualStyleBackColor = true;
-            // 
-            // tabOrc
-            // 
-            tabOrc.BackColor = Color.Black;
-            resources.ApplyResources(tabOrc, "tabOrc");
-            tabOrc.Name = "tabOrc";
-            // 
-            // tabUndead
-            // 
-            tabUndead.BackColor = Color.Black;
-            resources.ApplyResources(tabUndead, "tabUndead");
-            tabUndead.Name = "tabUndead";
-            // 
-            // tabNightElve
-            // 
-            tabNightElve.BackColor = Color.Black;
-            resources.ApplyResources(tabNightElve, "tabNightElve");
-            tabNightElve.Name = "tabNightElve";
-            // 
-            // tabCommon
-            // 
-            tabCommon.BackColor = Color.Black;
-            resources.ApplyResources(tabCommon, "tabCommon");
-            tabCommon.Name = "tabCommon";
             // 
             // FormMain
             // 
@@ -136,7 +87,6 @@
             Shown += FormMain_Shown;
             mainMenu.ResumeLayout(false);
             mainMenu.PerformLayout();
-            tabControlMain.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -150,11 +100,5 @@
         private ToolStripMenuItem openMenu;
         private ToolStripMenuItem saveMenu;
         private TabControl tabControlMain;
-        private TabPage tabHumanHeroes;
-        private TabPage tabOrc;
-        private TabPage tabUndead;
-        private TabPage tabNightElve;
-        private TabPage tabCommon;
-        private TabPage tabHuman;
     }
 }
