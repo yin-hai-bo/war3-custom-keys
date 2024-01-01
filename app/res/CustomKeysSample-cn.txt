@@ -53,22 +53,22 @@ Hotkey=B
 //取消
 [CmdCancel]
 Tip= (|cffffcc00ESC|r) 取消
-Hotkey=512
+Hotkey=27
 
 //取消建造
 [CmdCancelBuild]
 Tip=(|cffffcc00ESC|r) 取消
-Hotkey=512
+Hotkey=27
 
 //取消训练
 [CmdCancelTrain]
 Tip=(|cffffcc00ESC|r) 取消
-Hotkey=512
+Hotkey=27
 
 //取消复活
 [CmdCancelRevive]
 Tip=(|cffffcc00ESC|r) 取消
-Hotkey=512
+Hotkey=27
 
 //保持原位
 [CmdHoldPos]

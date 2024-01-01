@@ -2,7 +2,7 @@
 
 namespace yhb_war3_custom_keys.model {
 
-    internal class KeyDefines {
+    public class KeyDefines {
 
         private readonly List<IElement> _elements = new();
 

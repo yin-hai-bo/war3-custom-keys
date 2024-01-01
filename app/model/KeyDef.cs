@@ -2,7 +2,7 @@
 using yhb_war3_custom_keys.res;
 
 namespace yhb_war3_custom_keys.model {
-    internal class KeyDef : IElement {
+    public class KeyDef : IElement {
 
         private static readonly Regex REGEX = new(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline);
 
