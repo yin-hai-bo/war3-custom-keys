@@ -159,7 +159,7 @@
     <value>0, 0</value>
   </data>
   <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1029, 28</value>
+    <value>1262, 28</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
@@ -190,7 +190,7 @@
     <value>0, 28</value>
   </data>
   <data name="tabControlMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1029, 501</value>
+    <value>1262, 725</value>
   </data>
   <data name="tabControlMain.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -214,11 +214,14 @@
     <value>9, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1029, 529</value>
+    <value>1262, 753</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Warcraft III custom keys editor</value>

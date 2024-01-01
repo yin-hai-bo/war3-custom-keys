@@ -47,6 +47,8 @@ namespace yhb_war3_custom_keys.model {
         };
 
         static KeyDefinesGroup() {
+
+            // Human
             var race = RACE_ENTRIES[0];
             race.Add(new Entry[] {
                 new("Hblm", "血法师"),
@@ -138,6 +140,97 @@ namespace yhb_war3_custom_keys.model {
                 new("hlum", "伐木场"),
                 new("hkee", "主城"),
                 new("htow", "城镇大厅"),
+            });
+
+            // Orc
+            race = RACE_ENTRIES[1];
+            race.Add(new Entry[] {
+                new("Obla", "剑圣"),
+                new("AOwk", "疾步风"),
+                new("AOcr", "致命一击 "),
+                new("AOmi", "镜像"),
+                new("AOww", "剑刃风暴"),
+                new("Ofar", "先知"),
+                new("AOcl", "闪电链"),
+                new("AOfs", "透视"),
+                new("AOsf", "野兽幽魂"),
+                new("AOeq", "地震"),
+                new("Oshd", "暗影猎手"),
+                new("AOhw", "医疗波"),
+                new("AOsw", "毒蛇守卫"),
+                new("AOhx", "妖术 "),
+                new("AOvd", "巫毒"),
+                new("Otch", "牛头人酋长"),
+                new("AOsh", "震荡波"),
+                new("AOae", "耐久光环"),
+                new("AOws", "战争践踏"),
+                new("AOre", "重生"),
+            });
+            race.Add(new Entry[] {
+                new("ocat", "粉碎者"),
+                new("odoc", "巨魔巫医"),
+                new("Aeye", "岗哨守卫"),
+                new("Asta", "静止陷阱"),
+                new("Ahwd", "医疗守卫"),
+                new("ogru", "兽族步兵"),
+                new("ohun", "巨魔猎头者"),
+                new("otbk", "巨魔狂暴战士"),
+                new("Absk", "狂热愤怒"),
+                new("okod", "科多兽"),
+                new("Adev", "吞噬魔法"),
+                new("opeo", "苦工"),
+                new("orai", "掠夺者"),
+                new("Aens", "诱捕"),
+                new("oshm", "萨满祭司"),
+                new("Aprg", "净化"),
+                new("Ablo", "嗜血术"),
+                new("Alsh", "闪电护盾"),
+                new("otau", "牛头人"),
+                new("otbr", "巨魔蝙蝠骑士"),
+                new("Auco", "不稳定化合物"),
+                new("owyv", "风骑士"),
+                new("ospm", "灵魂行者"),
+                new("Aast", "先祖幽灵"),
+                new("Adcn", "消魔"),
+                new("Acpf", "灵肉形态"),
+                new("Aetf", "虚无形态"),
+                new("Aspl", "灵魂锁链"),
+            });
+            race.Add(new Entry[] {
+                new("Rome", "近战武器升级"),
+                new("Rora", "远程武器升级"),
+                new("Roar", "护甲升级"),
+                new("Rwdm", "战鼓"),
+                new("Ropg", "掠夺"),
+                new("Robs", "狂暴力量"),
+                new("Rows", "粉碎"),
+                new("Roen", "诱捕"),
+                new("Rovs", "浸毒武器"),
+                new("Rowd", "巫医训练升级"),
+                new("Rost", "萨满祭司训练升级"),
+                new("Rosp", "尖刺障碍升级"),
+                new("Rotr", "巨魔再生升级"),
+                new("Rolf", "液体炸弹升级"),
+                new("Ropm", "背包技能"),
+                new("Rowt", "灵魂行者训练升级"),
+                new("Robk", "狂暴愤怒升级"),
+                new("Rorb", "加强型防御"),
+                new("Robf", "燃烧之油"),
+                new("oalt", "风暴祭坛"),
+                new("obar", "兵营"),
+                new("obea", "兽栏"),
+                new("ofor", "战争磨坊"),
+                new("ofrt", "堡垒"),
+                new("ogre", "大厅"),
+                new("osld", "灵魂归宿"),
+                new("ostr", "要塞"),
+                new("otrb", "兽族地洞"),
+                new("Abtl", "战备状态"),
+                new("Astd", "卸载苦工"),
+                new("orbr", "加强型地洞"),
+                new("otto", "牛头人图腾"),
+                new("ovln", "巫毒商店"),
+                new("owtw", "了望塔"),
             });
         }
     }

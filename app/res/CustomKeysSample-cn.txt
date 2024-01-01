@@ -964,6 +964,7 @@ Tip=建造(|cffffcc00W|r)了望塔
 //兽族英雄和技能
 /////////////////////////////
 
+//剑圣
 [Obla]
 Hotkey=B
 Tip=召唤(|cffffcc00B|r)剑圣
@@ -997,6 +998,7 @@ Hotkey=B
 Researchtip=学习(|cffffcc00B|r)剑刃风暴
 Researchhotkey=B
 
+//先知
 [Ofar]
 Hotkey=F
 Tip=召唤(|cffffcc00F|r)先知
@@ -1032,6 +1034,7 @@ Hotkey=E
 Researchtip=“学习(|cffffcc00E|r)地震”
 Researchhotkey=E
 
+//暗影猎手
 [Oshd]
 Hotkey=H
 Tip= (|cffffcc00H|r)召唤暗影猎手
@@ -1066,6 +1069,7 @@ Hotkey=V
 Researchtip=“学习(|cffffcc00V|r)巫毒”
 Researchhotkey=V
 
+//牛头人酋长
 [Otch]
 Hotkey=T
 Tip=召唤(|cffffcc00T|r)牛头人酋长

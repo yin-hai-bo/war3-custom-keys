@@ -19,7 +19,8 @@ namespace yhb_war3_custom_keys{
         private void InitializeAllTables() {
             string[] TabNames = {
                 "Human", 
-                // "Orc", "Undead", "Night Elves",
+                "Orc",
+                // "Undead", "Night Elves",
                 "Common",
             };
             string[] GroupNames = {
