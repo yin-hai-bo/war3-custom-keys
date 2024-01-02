@@ -23,8 +23,17 @@ namespace yhb_war3_custom_keys.view {
 
         public KeyDefineGui(KeyDefines keyDefines, Control parent,
             IReadOnlyCollection<KeyDefinesGroup.Entry> entries) {
+
+            _titleFont = new Font(parent.Font, FontStyle.Bold);
+
             _listView = new ListView();
             _listView.Parent = parent;
+            _listView.BeginUpdate();
+            AddEntriesToListView(keyDefines, entries);
+            _listView.EndUpdate();
+        }
+
+        private void AddEntriesToListView(KeyDefines keyDefines, IReadOnlyCollection<KeyDefinesGroup.Entry> entries) {
             _listView.Dock = DockStyle.Fill;
             _listView.View = View.Details;
             _listView.HeaderStyle = ColumnHeaderStyle.Nonclickable;
@@ -42,8 +51,6 @@ namespace yhb_war3_custom_keys.view {
             _listView.Columns.Add("Unhotkey").TextAlign = HorizontalAlignment.Center;
             _listView.Columns.Add("Researchhotkey").TextAlign = HorizontalAlignment.Center;
             _listView.Columns.Add("Tip");
-
-            _titleFont = new Font(_listView.Font, FontStyle.Bold);
 
             foreach (var entry in entries) {
                 var section = keyDefines.GetSection(entry.SectionName);
@@ -67,11 +74,11 @@ namespace yhb_war3_custom_keys.view {
             var subItem = row.SubItems.Add(text);
             subItem.Tag = tag;
             switch (tag) {
-            case SubItemTag.Hotkey:
-            case SubItemTag.Unhotkey:
-            case SubItemTag.Researchhotkey:
-                subItem.ForeColor = Color.FromArgb(0xff, 0xff, 0xcc, 0x00);
-                break;
+                case SubItemTag.Hotkey:
+                case SubItemTag.Unhotkey:
+                case SubItemTag.Researchhotkey:
+                    subItem.ForeColor = Color.FromArgb(0xff, 0xff, 0xcc, 0x00);
+                    break;
             }
         }
 
@@ -116,14 +123,14 @@ namespace yhb_war3_custom_keys.view {
                 return false;
             }
             switch ((SubItemTag)e.SubItem.Tag) {
-            case SubItemTag.Hotkey:
-            case SubItemTag.Unhotkey:
-            case SubItemTag.Researchhotkey:
-                sf.Alignment = StringAlignment.Center;
-                e.Graphics.DrawString(e.SubItem.Text, _listView.Font,
-                    new SolidBrush(e.SubItem.ForeColor),
-                    e.Bounds, sf);
-                return true;
+                case SubItemTag.Hotkey:
+                case SubItemTag.Unhotkey:
+                case SubItemTag.Researchhotkey:
+                    sf.Alignment = StringAlignment.Center;
+                    e.Graphics.DrawString(e.SubItem.Text, _listView.Font,
+                        new SolidBrush(e.SubItem.ForeColor),
+                        e.Bounds, sf);
+                    return true;
             }
             return false;
         }
