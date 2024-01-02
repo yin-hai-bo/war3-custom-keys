@@ -1,4 +1,4 @@
-﻿namespace yhb_war3_custom_keys{
+﻿namespace yhb_war3_custom_keys {
     partial class FormMain {
         /// <summary>
         ///  Required designer variable.
@@ -30,7 +30,6 @@
             toolStripSeparator1 = new ToolStripSeparator();
             openMenu = new ToolStripMenuItem();
             saveMenu = new ToolStripMenuItem();
-            tabControlMain = new TabControl();
             mainMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,20 +66,14 @@
             saveMenu.Name = "saveMenu";
             resources.ApplyResources(saveMenu, "saveMenu");
             // 
-            // tabControlMain
-            // 
-            resources.ApplyResources(tabControlMain, "tabControlMain");
-            tabControlMain.Name = "tabControlMain";
-            tabControlMain.SelectedIndex = 0;
-            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
-            Controls.Add(tabControlMain);
+            BackColor = SystemColors.Control;
             Controls.Add(mainMenu);
-            ForeColor = Color.White;
+            ForeColor = SystemColors.WindowText;
+            IsMdiContainer = true;
             MainMenuStrip = mainMenu;
             Name = "FormMain";
             Load += FormMain_Load;
@@ -99,6 +92,5 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem openMenu;
         private ToolStripMenuItem saveMenu;
-        private TabControl tabControlMain;
     }
 }

@@ -80,8 +80,7 @@ namespace yhb_war3_custom_keys.res {
         ///
         /////attack
         ///[CmdAttack]
-        ///Tip=|cffffcc00A|rttack
-        ///Hotkey=A [rest of string was truncated]&quot;;.
+        ///Tip=|cffffcc [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CustomKeysSample {
             get {
@@ -154,6 +153,15 @@ namespace yhb_war3_custom_keys.res {
         internal static string S_CANCEL {
             get {
                 return ResourceManager.GetString("S_CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Key Defines.
+        /// </summary>
+        internal static string S_DEFAULT_KEY_DEFINES {
+            get {
+                return ResourceManager.GetString("S_DEFAULT_KEY_DEFINES", resourceCulture);
             }
         }
         

@@ -133,6 +133,9 @@
   <data name="S_CANCEL" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="S_DEFAULT_KEY_DEFINES" xml:space="preserve">
+    <value>Default Key Defines</value>
+  </data>
   <data name="S_ERROR" xml:space="preserve">
     <value>Error</value>
   </data>
