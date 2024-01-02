@@ -31,7 +31,7 @@ namespace yhb_war3_custom_keys.model {
                 if (sectionName == null) {
                     throw new CustomKeysParser.Exception(reader.NextLine, Resources.S_SECTION_DEFINE_EXPECTED);
                 }
-                KeyDef keyDef = new(sectionName);
+                Section keyDef = new(sectionName);
                 keyDef.LoadFromReader(reader, parser);
                 _elements.Add(keyDef);
             }
@@ -43,10 +43,10 @@ namespace yhb_war3_custom_keys.model {
             }
         }
 
-        public KeyDef? GetSection(string sectionName) {
+        public Section? GetSection(string sectionName) {
             foreach (var e in _elements) {
                 if (e.SectionName == sectionName) {
-                    return e as KeyDef;
+                    return e as Section;
                 }
             }
             return null;

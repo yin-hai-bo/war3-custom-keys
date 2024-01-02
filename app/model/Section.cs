@@ -2,7 +2,7 @@
 using yhb_war3_custom_keys.res;
 
 namespace yhb_war3_custom_keys.model {
-    public class KeyDef : IElement {
+    public class Section : IElement {
 
         private static readonly Regex REGEX = new(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline);
 
@@ -10,7 +10,7 @@ namespace yhb_war3_custom_keys.model {
 
         private readonly List<IElement> _items = new();
 
-        internal KeyDef(string name) {
+        internal Section(string name) {
             this.Name = name;
         }
 
