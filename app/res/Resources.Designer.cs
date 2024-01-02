@@ -148,6 +148,15 @@ namespace yhb_war3_custom_keys.res {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        internal static string S_CONFIRM {
+            get {
+                return ResourceManager.GetString("S_CONFIRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default Key Defines.
         /// </summary>
         internal static string S_DEFAULT_KEY_DEFINES {
@@ -306,6 +315,24 @@ namespace yhb_war3_custom_keys.res {
         internal static string S_PAGE_UNITS {
             get {
                 return ResourceManager.GetString("S_PAGE_UNITS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string S_SAVE {
+            get {
+                return ResourceManager.GetString("S_SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The content has been changed, save it now?.
+        /// </summary>
+        internal static string S_SAVE_DIALOG_MESSAGE {
+            get {
+                return ResourceManager.GetString("S_SAVE_DIALOG_MESSAGE", resourceCulture);
             }
         }
         

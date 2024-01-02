@@ -111,5 +111,9 @@ namespace yhb_war3_custom_keys {
                 saveMenu.Enabled = child.NeedSave;
             }
         }
+
+        private void exitMenu_Click(object sender, EventArgs e) {
+            Close();
+        }
     }
 }

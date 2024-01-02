@@ -123,6 +123,9 @@
   <data name="S_CANCEL" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="S_CONFIRM" xml:space="preserve">
+    <value>确认</value>
+  </data>
   <data name="S_DEFAULT_KEY_DEFINES" xml:space="preserve">
     <value>默认定义</value>
   </data>
@@ -176,6 +179,12 @@
   </data>
   <data name="S_PAGE_UNITS" xml:space="preserve">
     <value>单位</value>
+  </data>
+  <data name="S_SAVE" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="S_SAVE_DIALOG_MESSAGE" xml:space="preserve">
+    <value>内容已被改动，是否立即保存？</value>
   </data>
   <data name="S_SECTION_DEFINE_EXPECTED" xml:space="preserve">
     <value>应该出现 [] 定义</value>

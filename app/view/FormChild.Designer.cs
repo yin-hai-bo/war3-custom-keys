@@ -45,6 +45,7 @@
             ShowIcon = false;
             ShowInTaskbar = false;
             Text = "FormChild";
+            FormClosing += FormChild_FormClosing;
             Load += FormChild_Load;
             ResumeLayout(false);
         }

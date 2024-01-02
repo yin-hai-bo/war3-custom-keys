@@ -7,7 +7,7 @@ namespace yhb_war3_custom_keys.view {
         private KeyDefines? _keyDefines;
         public string? Filename { get; private set; }
         public bool Readonly { get; private set; }
-        public bool NeedSave => !this.Readonly;  // FIXME
+        public bool NeedSave { get; private set; }
 
         public FormChild() {
             InitializeComponent();
@@ -68,6 +68,21 @@ namespace yhb_war3_custom_keys.view {
                     };
                     KeyDefinesToListView.Execute(keyDefines, subPage, entries);
                     ++idx;
+                }
+            }
+        }
+
+        private void FormChild_FormClosing(object sender, FormClosingEventArgs e) {
+            if (this.NeedSave) {
+                DialogResult dr = DialogAskSave.ShowModal(this.Filename);
+                if (dr == DialogResult.Yes) {
+                    // TODO: Save
+                } else if (dr == DialogResult.No) {
+                    // Discard change, close window.
+                    return;
+                } else {
+                    // Don't close
+                    e.Cancel = true;
                 }
             }
         }
