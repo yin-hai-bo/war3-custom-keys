@@ -68,6 +68,7 @@
             // 
             // FormMain
             // 
+            AllowDrop = true;
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
@@ -78,6 +79,8 @@
             Name = "FormMain";
             Load += FormMain_Load;
             Shown += FormMain_Shown;
+            DragDrop += FormMain_DragDrop;
+            DragEnter += FormMain_DragEnter;
             mainMenu.ResumeLayout(false);
             mainMenu.PerformLayout();
             ResumeLayout(false);

@@ -8,12 +8,22 @@ namespace yhb_war3_custom_keys.model {
 
         private KeyDefines() { }
 
+        internal static KeyDefines CreateFromFile(string filename) {
+            using (TextLineReader reader = new(new StreamReader(filename))) {
+                return CreateKeyDefines(reader);
+            }
+        }
+
         internal static KeyDefines CreateFromString(string str) {
             using (TextLineReader reader = new(str)) {
-                KeyDefines keyDefines = new KeyDefines();
-                keyDefines.LoadFromReader(reader);
-                return keyDefines;
+                return CreateKeyDefines(reader);
             }
+        }
+
+        private static KeyDefines CreateKeyDefines(TextLineReader reader) {
+            KeyDefines keyDefines = new();
+            keyDefines.LoadFromReader(reader);
+            return keyDefines;
         }
 
         private void LoadFromReader(TextLineReader reader) {

@@ -11,6 +11,10 @@
             _reader = new StringReader(text);
         }
 
+        public TextLineReader(TextReader reader) {
+            _reader = reader;
+        }
+
         public string? ReadLine(bool trim = true) {
             ++NextLine;
             var node = _lines.First;
