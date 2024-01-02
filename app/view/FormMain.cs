@@ -21,7 +21,7 @@ namespace yhb_war3_custom_keys{
                 "Human", 
                 "Orc",
                 "Undead",
-                //"Night Elves",
+                "Night Elves",
                 "Common",
             };
             string[] GroupNames = {
