@@ -319,6 +319,15 @@ namespace yhb_war3_custom_keys.res {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Untitled - {0}.
+        /// </summary>
+        internal static string S_UNTITLED {
+            get {
+                return ResourceManager.GetString("S_UNTITLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
         internal static string S_WARNING {

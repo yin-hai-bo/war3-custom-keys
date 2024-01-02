@@ -180,6 +180,9 @@
   <data name="S_UNKNOWN_OPTION" xml:space="preserve">
     <value>未知选项 '{0}'。</value>
   </data>
+  <data name="S_UNTITLED" xml:space="preserve">
+    <value>(未命名) - {0}</value>
+  </data>
   <data name="S_WARNING" xml:space="preserve">
     <value>警告</value>
   </data>

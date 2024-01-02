@@ -50,6 +50,7 @@
             // 
             newMenu.Name = "newMenu";
             resources.ApplyResources(newMenu, "newMenu");
+            newMenu.Click += newMenu_Click;
             // 
             // toolStripSeparator1
             // 

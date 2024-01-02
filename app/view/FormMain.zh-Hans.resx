@@ -118,47 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="newMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="newMenu.Text" xml:space="preserve">
+    <value>新建(&amp;N)</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 6</value>
+  </data>
+  <data name="openMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="openMenu.Text" xml:space="preserve">
+    <value>打开(&amp;O)...</value>
+  </data>
+  <data name="saveMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="saveMenu.Text" xml:space="preserve">
+    <value>保存(&amp;S)</value>
+  </data>
   <data name="fileMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 24</value>
+    <value>58, 21</value>
   </data>
   <data name="fileMenu.Text" xml:space="preserve">
     <value>文件(&amp;F)</value>
-  </data>
-  <data name="tabHuman.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1021, 465</value>
-  </data>
-  <data name="tabHuman.Text" xml:space="preserve">
-    <value>人族</value>
-  </data>
-  <data name="tabOrc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1021, 465</value>
-  </data>
-  <data name="tabOrc.Text" xml:space="preserve">
-    <value>兽族</value>
-  </data>
-  <data name="tabUndead.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1021, 465</value>
-  </data>
-  <data name="tabUndead.Text" xml:space="preserve">
-    <value>亡灵</value>
-  </data>
-  <data name="tabNightElve.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1021, 465</value>
-  </data>
-  <data name="tabNightElve.Text" xml:space="preserve">
-    <value>暗夜精灵</value>
-  </data>
-  <data name="tabCommon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1021, 465</value>
-  </data>
-  <data name="tabControlMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 28</value>
-  </data>
-  <data name="tabControlMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1029, 501</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabControlMain.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
 </root>

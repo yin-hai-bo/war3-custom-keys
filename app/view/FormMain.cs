@@ -1,10 +1,13 @@
 using System.Diagnostics;
+using System.Globalization;
 using yhb_war3_custom_keys.model;
 using yhb_war3_custom_keys.res;
 using yhb_war3_custom_keys.view;
 
 namespace yhb_war3_custom_keys {
     public partial class FormMain : Form {
+
+        private int _newDocCount;
 
         private bool _firstShown = true;
 
@@ -23,13 +26,12 @@ namespace yhb_war3_custom_keys {
             _firstShown = false;
 
             // The default key defines
-            FormChild.Create(this, Resources.S_DEFAULT_KEY_DEFINES,
-                KeyDefines.CreateFromString(Resources.CustomKeysSample_cn));
+            FormChild.Create(this, Resources.S_DEFAULT_KEY_DEFINES, CreateDefaultKeyDefines(), "");
 
             CmdLine cmdLine = new CmdLine();
             try {
                 cmdLine.Parse(Environment.GetCommandLineArgs());
-            } catch(CmdLine.Exception ex) {
+            } catch (CmdLine.Exception ex) {
                 ErrorBox.Show(this, ex.Message);
             }
             if (cmdLine.IsValid) {
@@ -37,6 +39,17 @@ namespace yhb_war3_custom_keys {
                     TryToCreateFormChildFromFile(filename);
                 }
             }
+        }
+
+        private static KeyDefines CreateDefaultKeyDefines() {
+            string content;
+            CultureInfo currentCulture = CultureInfo.CurrentCulture;
+            if (currentCulture.Name == "zh-CN" || currentCulture.Name == "zh-SG") {
+                content = Resources.CustomKeysSample_cn;
+            } else {
+                content = Resources.CustomKeysSample;
+            }
+            return KeyDefines.CreateFromString(content);
         }
 
         private void FormMain_DragEnter(object sender, DragEventArgs e) {
@@ -57,7 +70,7 @@ namespace yhb_war3_custom_keys {
         private void TryToCreateFormChildFromFile(string filename) {
             try {
                 KeyDefines keyDefines = KeyDefines.CreateFromFile(filename);
-                FormChild.Create(this, filename, keyDefines);
+                FormChild.Create(this, filename, keyDefines, filename);
             } catch (IOException ex) {
                 ErrorBox.Show(this, ex.Message);
             }
@@ -66,6 +79,14 @@ namespace yhb_war3_custom_keys {
         private static string[]? GetFilenamesFromDrag(DragEventArgs e) {
             var data = e.Data;
             return data?.GetData("FileDrop") as string[];
+        }
+
+        private void newMenu_Click(object sender, EventArgs e) {
+            ++_newDocCount;           
+            FormChild.Create(this, 
+                string.Format(Resources.S_UNTITLED, _newDocCount),
+                CreateDefaultKeyDefines(),
+                null);
         }
     }
 }
