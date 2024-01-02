@@ -20,7 +20,7 @@ namespace yhb_war3_custom_keys.view {
             Tip,
         }
 
-        public static void Execute(KeyDefines keyDefines, Control parent, IReadOnlyCollection<KeyDefinesGroup.Entry> entries) {
+        public static void Execute(KeyDefines keyDefines, Control parent, IReadOnlyCollection<KeyDefinesCategory.Entry> entries) {
             ListView listView = new() {
                 Parent = parent,
                 Dock = DockStyle.Fill,
@@ -42,7 +42,7 @@ namespace yhb_war3_custom_keys.view {
 
         private static void AddEntriesToListView(
             KeyDefines keyDefines,
-            IReadOnlyCollection<KeyDefinesGroup.Entry> entries,
+            IReadOnlyCollection<KeyDefinesCategory.Entry> entries,
             ListView listView) {
 
             var columns = listView.Columns;

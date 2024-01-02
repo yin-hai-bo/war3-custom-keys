@@ -33,7 +33,7 @@ namespace yhb_war3_custom_keys.view {
             subPageNames[1] = Resources.S_PAGE_UNITS;
             subPageNames[2] = Resources.S_PAGE_BUILDING;
 
-            foreach (KeyDefinesGroup.Category category in KeyDefinesGroup.CategoryList) {
+            foreach (KeyDefinesCategory.Category category in KeyDefinesCategory.CategoryList) {
                 TabPage page = new(category.Name) {
                     Parent = tabControl,
                     BackColor = Color.Black,
@@ -41,7 +41,7 @@ namespace yhb_war3_custom_keys.view {
                 };
 
                 if (category.KindCount == 1) {
-                    IEnumerator<KeyDefinesGroup.Entry[]> it = category.GetEnumerator();
+                    IEnumerator<KeyDefinesCategory.Entry[]> it = category.GetEnumerator();
                     it.MoveNext();
                     KeyDefinesToListView.Execute(keyDefines, page, it.Current);
                     continue;
@@ -55,7 +55,7 @@ namespace yhb_war3_custom_keys.view {
                     Alignment = TabAlignment.Left,
                 };
                 int idx = 0;
-                foreach (KeyDefinesGroup.Entry[] entries in category) {
+                foreach (KeyDefinesCategory.Entry[] entries in category) {
                     TabPage subPage = new(subPageNames[idx]) {
                         Parent = tc,
                         BackColor = page.BackColor,

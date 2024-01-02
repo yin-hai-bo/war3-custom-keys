@@ -2,7 +2,7 @@
 using yhb_war3_custom_keys.res;
 
 namespace yhb_war3_custom_keys.model {
-    public static class KeyDefinesGroup {
+    public static class KeyDefinesCategory {
 
         public struct Entry {
             public readonly string SectionName;
@@ -41,7 +41,7 @@ namespace yhb_war3_custom_keys.model {
         private static readonly List<Category> CATEGORY_LIST = new(8);
         public static IEnumerable<Category> CategoryList => CATEGORY_LIST;
 
-        static KeyDefinesGroup() {
+        static KeyDefinesCategory() {
 
             #region Human
             Category category = new(Resources.S_PAGE_HUMAN);
