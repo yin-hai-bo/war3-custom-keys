@@ -220,6 +220,15 @@ namespace yhb_war3_custom_keys.res {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Text Files (*.txt)|*.txt|All files (*.*)|*.*.
+        /// </summary>
+        internal static string S_OPEN_FILE_DIALOG_FILTER {
+            get {
+                return ResourceManager.GetString("S_OPEN_FILE_DIALOG_FILTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Building.
         /// </summary>
         internal static string S_PAGE_BUILDING {

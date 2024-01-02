@@ -147,6 +147,9 @@
   <data name="S_OK" xml:space="preserve">
     <value>确定</value>
   </data>
+  <data name="S_OPEN_FILE_DIALOG_FILTER" xml:space="preserve">
+    <value>纯文本文件 (*.txt)|*.txt|任意文件类型 (*.*)|*.*</value>
+  </data>
   <data name="S_PAGE_BUILDING" xml:space="preserve">
     <value>建筑</value>
   </data>

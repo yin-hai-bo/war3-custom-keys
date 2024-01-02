@@ -82,11 +82,26 @@ namespace yhb_war3_custom_keys {
         }
 
         private void newMenu_Click(object sender, EventArgs e) {
-            ++_newDocCount;           
-            FormChild.Create(this, 
+            ++_newDocCount;
+            FormChild.Create(this,
                 string.Format(Resources.S_UNTITLED, _newDocCount),
                 CreateDefaultKeyDefines(),
                 null);
+        }
+
+        private void openMenu_Click(object sender, EventArgs e) {
+            OpenFileDialog dlg = new() {
+                Multiselect = true,
+                Filter = Resources.S_OPEN_FILE_DIALOG_FILTER,
+                CheckPathExists = true,
+                CheckFileExists = true,
+                ReadOnlyChecked = true,
+            };
+            if (dlg.ShowDialog(this) == DialogResult.OK) {
+                foreach (var file in dlg.FileNames) {
+                    TryToCreateFormChildFromFile(file);
+                }
+            }
         }
     }
 }

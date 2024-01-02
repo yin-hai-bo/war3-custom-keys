@@ -61,6 +61,7 @@
             // 
             openMenu.Name = "openMenu";
             resources.ApplyResources(openMenu, "openMenu");
+            openMenu.Click += openMenu_Click;
             // 
             // saveMenu
             // 

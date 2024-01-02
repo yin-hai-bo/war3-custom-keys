@@ -154,6 +154,9 @@
   <data name="S_OK" xml:space="preserve">
     <value>Ok</value>
   </data>
+  <data name="S_OPEN_FILE_DIALOG_FILTER" xml:space="preserve">
+    <value>Text Files (*.txt)|*.txt|All files (*.*)|*.*</value>
+  </data>
   <data name="S_PAGE_BUILDING" xml:space="preserve">
     <value>Building</value>
   </data>
