@@ -45,6 +45,7 @@
             fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newMenu, toolStripSeparator1, openMenu, saveMenu });
             fileMenu.Name = "fileMenu";
             resources.ApplyResources(fileMenu, "fileMenu");
+            fileMenu.DropDownOpening += fileMenu_DropDownOpening;
             // 
             // newMenu
             // 

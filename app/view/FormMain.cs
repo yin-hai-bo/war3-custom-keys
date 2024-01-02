@@ -25,9 +25,10 @@ namespace yhb_war3_custom_keys {
             }
             _firstShown = false;
 
-            // The default key defines
-            FormChild.Create(this, Resources.S_DEFAULT_KEY_DEFINES, CreateDefaultKeyDefines(), "");
+            // The default key defines.
+            FormChild.Create(this, Resources.S_DEFAULT_KEY_DEFINES, CreateDefaultKeyDefines(), "", true);
 
+            // Open the file specified on the command line.
             CmdLine cmdLine = new CmdLine();
             try {
                 cmdLine.Parse(Environment.GetCommandLineArgs());
@@ -70,7 +71,7 @@ namespace yhb_war3_custom_keys {
         private void TryToCreateFormChildFromFile(string filename) {
             try {
                 KeyDefines keyDefines = KeyDefines.CreateFromFile(filename);
-                FormChild.Create(this, filename, keyDefines, filename);
+                FormChild.Create(this, filename, keyDefines, filename, false);
             } catch (IOException ex) {
                 ErrorBox.Show(this, ex.Message);
             }
@@ -86,7 +87,7 @@ namespace yhb_war3_custom_keys {
             FormChild.Create(this,
                 string.Format(Resources.S_UNTITLED, _newDocCount),
                 CreateDefaultKeyDefines(),
-                null);
+                null, false);
         }
 
         private void openMenu_Click(object sender, EventArgs e) {
@@ -95,12 +96,19 @@ namespace yhb_war3_custom_keys {
                 Filter = Resources.S_OPEN_FILE_DIALOG_FILTER,
                 CheckPathExists = true,
                 CheckFileExists = true,
-                ReadOnlyChecked = true,
             };
             if (dlg.ShowDialog(this) == DialogResult.OK) {
                 foreach (var file in dlg.FileNames) {
                     TryToCreateFormChildFromFile(file);
                 }
+            }
+        }
+
+        private void fileMenu_DropDownOpening(object sender, EventArgs e) {
+            if (this.ActiveMdiChild is not FormChild child) {
+                saveMenu.Enabled = false;
+            } else {
+                saveMenu.Enabled = child.NeedSave;
             }
         }
     }

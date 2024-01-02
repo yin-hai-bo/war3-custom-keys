@@ -5,18 +5,21 @@ namespace yhb_war3_custom_keys.view {
     public partial class FormChild : Form {
 
         private KeyDefines? _keyDefines;
-        private string? _filename;
+        public string? Filename { get; private set; }
+        public bool Readonly { get; private set; }
+        public bool NeedSave => !this.Readonly;  // FIXME
 
         public FormChild() {
             InitializeComponent();
         }
 
-        public static FormChild Create(Form mdiParent, string caption, KeyDefines keyDefins, string? filename) {
+        public static FormChild Create(Form mdiParent, string caption, KeyDefines keyDefins, string? filename, bool readOnly) {
             FormChild formChild = new FormChild {
                 Text = caption,
                 MdiParent = mdiParent,
                 _keyDefines = keyDefins,
-                _filename = filename,
+                Filename = filename,
+                Readonly = readOnly,
             };
             formChild.Show();
             return formChild;
