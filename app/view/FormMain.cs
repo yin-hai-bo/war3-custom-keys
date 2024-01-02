@@ -13,57 +13,46 @@ namespace yhb_war3_custom_keys{
         }
 
         private void FormMain_Load(object sender, EventArgs e) {
-            TabPagesInitializer.Execute(this.tabControlMain, _defaultKeyDefines);
+            TabPagesInitializer.Execute(tabControlMain, _defaultKeyDefines);
         }
 
         private static class TabPagesInitializer {
-            private static readonly string[] TabNames = {
-                "Human", 
-                "Orc",
-                "Undead",
-                "Night Elves",
-                "Neutral",
-                "Common",
-            };
-            private static readonly string[] GroupNames = {
+            private static readonly string[] SUB_PAGE_NAMES = {
                 "Heroes", "Units", "Building",
             };
 
-            public static void Execute(TabControl tabControl, KeyDefines keyDefines) {
-                int index = 0;
-                foreach (string name in TabNames) {
-                    TabPage page = new TabPage(name) {
+            public static void Execute(TabControl tabControl, KeyDefines keyDefines) { 
+                foreach (KeyDefinesGroup.Category category in KeyDefinesGroup.CategoryList) {
+                    TabPage page = new(category.Name) {
                         Parent = tabControl,
                         BackColor = Color.Black,
                         ForeColor = Color.White
                     };
-                    var entries = KeyDefinesGroup.RACE_ENTRIES[index];
 
-                    // Only one sub-page.
-                    if (entries.Count == 1) {
-                        new KeyDefineGui(keyDefines, page, entries[0]);
+                    if (category.KindCount == 1) {
+                        IEnumerator<KeyDefinesGroup.Entry[]> it = category.GetEnumerator();
+                        it.MoveNext();
+                        new KeyDefineGui(keyDefines, page, it.Current);
                         continue;
                     }
 
-                    // Has three sub-pages.
-
-                    TabControl tc = new TabControl {
+                    TabControl tc = new() {
                         Parent = page,
                         BackColor = page.BackColor,
                         ForeColor = page.ForeColor,
                         Dock = DockStyle.Fill,
                         Alignment = TabAlignment.Left,
                     };
-                    int sub = 0;
-                    foreach (string group in GroupNames) {
-                        TabPage subPage = new TabPage(group) {
+                    int idx = 0;
+                    foreach (KeyDefinesGroup.Entry[] entries in category) {
+                        TabPage subPage = new(SUB_PAGE_NAMES[idx]) {
                             Parent = tc,
                             BackColor = page.BackColor,
                             ForeColor = page.ForeColor,
                         };
-                        new KeyDefineGui(keyDefines, subPage, entries[sub++]);
+                        new KeyDefineGui(keyDefines, subPage, entries);
+                        ++idx;
                     }
-                    ++index;
                 }
             }
         }

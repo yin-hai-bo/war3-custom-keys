@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Globalization;
-using System.Security.Cryptography;
+﻿using System.Collections;
 
 namespace yhb_war3_custom_keys.model {
     public static class KeyDefinesGroup {
@@ -14,20 +12,40 @@ namespace yhb_war3_custom_keys.model {
             }
         }
 
-        public static readonly List<Entry[]>[] RACE_ENTRIES = new [] {
-            new List<Entry[]>(3),
-            new List<Entry[]>(3),
-            new List<Entry[]>(3),
-            new List<Entry[]>(3),
-            new List<Entry[]>(1),
-            new List<Entry[]>(1),
+        public class Category : IEnumerable<Entry[]> {
+            public readonly string Name;
+
+            private readonly List<Entry[]> _list = new List<Entry[]>(3);
+            public int KindCount => _list.Count;
+
+            public Category(string name) {
+                this.Name = name;
+            }
+
+            public void Add(Entry[] entries) { 
+                _list.Add(entries);
+            }
+
+
+
+            public IEnumerator<Entry[]> GetEnumerator() {
+                return _list.GetEnumerator();
+            }
+
+            IEnumerator IEnumerable.GetEnumerator() {
+                return _list.GetEnumerator();
+            }
         };
+
+        private static readonly List<Category> CATEGORY_LIST = new(8);
+        public static IEnumerable<Category> CategoryList => CATEGORY_LIST;
 
         static KeyDefinesGroup() {
 
             #region Human
-            var race = RACE_ENTRIES[0];
-            race.Add(new Entry[] {
+            Category category = new("Human");
+            CATEGORY_LIST.Add(category);
+            category.Add(new Entry[] {
                 new("Hblm", "血法师"),
                 new("AHdr", "魔法吸吮"),
                 new("AHfs", "烈焰风暴"),
@@ -49,7 +67,7 @@ namespace yhb_war3_custom_keys.model {
                 new("AHad", "专注光环"),
                 new("AHre", "复活"),
             });
-            race.Add(new Entry[] {
+            category.Add(new Entry[] {
                 new("hdhw", "龙鹰骑士 "),
                 new("Amls", "空中锁镣"),
                 new("Aclf", "乌云"),
@@ -78,7 +96,7 @@ namespace yhb_war3_custom_keys.model {
                 new("hrtt", "蒸汽机车（带弹幕攻击）"),
                 new("hgry", "狮鹫骑士"),
             });
-            race.Add(new Entry[] {
+            category.Add(new Entry[] {
                 new("Rhss", "魔法控制"),
                 new("Rhme", "剑术升级"),
                 new("Rhra", "火药升级"),
@@ -121,8 +139,9 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Orc
-            race = RACE_ENTRIES[1];
-            race.Add(new Entry[] {
+            category = new("Orc");
+            CATEGORY_LIST.Add(category);
+            category.Add(new Entry[] {
                 new("Obla", "剑圣"),
                 new("AOwk", "疾步风"),
                 new("AOcr", "致命一击 "),
@@ -144,7 +163,7 @@ namespace yhb_war3_custom_keys.model {
                 new("AOws", "战争践踏"),
                 new("AOre", "重生"),
             });
-            race.Add(new Entry[] {
+            category.Add(new Entry[] {
                 new("ocat", "粉碎者"),
                 new("odoc", "巨魔巫医"),
                 new("Aeye", "岗哨守卫"),
@@ -174,7 +193,7 @@ namespace yhb_war3_custom_keys.model {
                 new("Aetf", "虚无形态"),
                 new("Aspl", "灵魂锁链"),
             });
-            race.Add(new Entry[] {
+            category.Add(new Entry[] {
                 new("Rome", "近战武器升级"),
                 new("Rora", "远程武器升级"),
                 new("Roar", "护甲升级"),
@@ -213,8 +232,9 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Undead
-            race = RACE_ENTRIES[2];
-            race.Add(new Entry[] {
+            category = new("Undead");
+            CATEGORY_LIST.Add(category);
+            category.Add(new Entry[] {
                 new("Ucrl", "地穴领主"),
                 new("AUim", "穿刺"),
                 new("AUts", "尖刺外壳"),
@@ -238,7 +258,7 @@ namespace yhb_war3_custom_keys.model {
                 new("AUdr", "黑暗仪式"),
                 new("AUdd", "死亡凋零"),
             });
-            race.Add(new Entry[] {
+            category.Add(new Entry[] {
                 new("uaco", "侍僧"),
                 new("Auns", "反召唤建筑物"),
                 new("Aaha", " 采集"),
@@ -274,7 +294,7 @@ namespace yhb_war3_custom_keys.model {
                 new("Advm", "吞噬魔法"),
                 new("Aabs", "吸收魔法"),
             });
-            race.Add(new Entry[] {
+            category.Add(new Entry[] {
                 new("Rusp", "研究破坏者形态"),
                 new("Rume", "邪恶力量升级"),
                 new("Rura", "生物攻击升级"),
@@ -313,8 +333,9 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Night Elves
-            race = RACE_ENTRIES[3];
-            race.Add(new Entry[] {
+            category = new("Night Elves");
+            CATEGORY_LIST.Add(category);
+            category.Add(new Entry[] {
                 new("Edem", "恶魔猎手"),
                 new("AEmb", "法力燃烧"),
                 new("AEim", "献祭 "),
@@ -337,7 +358,7 @@ namespace yhb_war3_custom_keys.model {
                 new("AEsv", "复仇之魂"),
                 new("Avng", " 复仇之魂"),
             });
-            race.Add(new Entry[] {
+            category.Add(new Entry[] {
                 new("Ashm", "隐藏"),
                 new("ebal", "投刃车"),
                 new("echm", "奇美拉"),
@@ -371,7 +392,7 @@ namespace yhb_war3_custom_keys.model {
                 new("Amfl", "魔力之焰"),
                 new("Apsh", "变相移动"),
             });
-            race.Add(new Entry[] {
+            category.Add(new Entry[] {
                 new("Resm", "月之力量升级"),
                 new("Resw", "野性力量升级"),
                 new("Rema", "月之护甲升级"),
@@ -417,8 +438,9 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Neutral heroes
-            race = RACE_ENTRIES[4];
-            race.Add(new Entry[] {
+            category = new("Neutral");
+            CATEGORY_LIST.Add(category);
+            category.Add(new Entry[] {
                 new("Nngs", "娜迦女海巫"),
                 new("ANms", "魔法护盾"),
                 new("ANfl", "叉状闪电"),
@@ -493,8 +515,9 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Common
-            race = RACE_ENTRIES[5];
-            race.Add(new Entry[] {
+            category = new("Common");
+            CATEGORY_LIST.Add(category);
+            category.Add(new Entry[] {
                 new("CmdMove", "移动"),
                 new("CmdAttack", "攻击"),
                 new("CmdAttackGround", "攻击地面"),
