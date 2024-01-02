@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace yhb_war3_custom_keys.model {
     public static class KeyDefinesGroup {
@@ -48,7 +49,7 @@ namespace yhb_war3_custom_keys.model {
 
         static KeyDefinesGroup() {
 
-            // Human
+            #region Human
             var race = RACE_ENTRIES[0];
             race.Add(new Entry[] {
                 new("Hblm", "血法师"),
@@ -141,8 +142,9 @@ namespace yhb_war3_custom_keys.model {
                 new("hkee", "主城"),
                 new("htow", "城镇大厅"),
             });
+            #endregion
 
-            // Orc
+            #region Orc
             race = RACE_ENTRIES[1];
             race.Add(new Entry[] {
                 new("Obla", "剑圣"),
@@ -232,6 +234,107 @@ namespace yhb_war3_custom_keys.model {
                 new("ovln", "巫毒商店"),
                 new("owtw", "了望塔"),
             });
+            #endregion
+
+            #region Undead
+            race = RACE_ENTRIES[2];
+            race.Add(new Entry[] {
+                new("Ucrl", "地穴领主"),
+                new("AUim", "穿刺"),
+                new("AUts", "尖刺外壳"),
+                new("AUcb", "腐尸甲虫"),
+                new("Abu2", "钻地（等级2）"),
+                new("Abu3", "钻地（等级3）"),
+                new("AUls", "蝗虫群"),
+                new("Udea", "死亡骑士"),
+                new("AUdc", "死亡缠绕"),
+                new("AUau", "邪恶光环"),
+                new("AUdp", "死亡契约"),
+                new("AUan", "操纵死尸"),
+                new("Udre", "恐惧魔王"),
+                new("AUcs", "腐臭蜂群"),
+                new("AUsl", "睡眠"),
+                new("AUav", "吸血光环"),
+                new("AUin", "地狱火"),
+                new("Ulic", "巫妖"),
+                new("AUfn", "霜冻新星"),
+                new("AUfu", "霜冻护甲"),
+                new("AUdr", "黑暗仪式"),
+                new("AUdd", "死亡凋零"),
+            });
+            race.Add(new Entry[] {
+                new("uaco", "侍僧"),
+                new("Auns", "反召唤建筑物"),
+                new("Aaha", " 采集"),
+                new("Arst", "恢复"),
+                new("uabo", "憎恶"),
+                new("Acn2", "吞食尸体"),
+                new("uban", "女妖"),
+                new("Acrs", "诅咒"),
+                new("Aams", "反魔法外壳"),
+                new("Aam2", "反魔法外壳"),
+                new("Apos", "占据"),
+                new("Aps2", "占据"),
+                new("ucry", "穴居恶魔"),
+                new("Aweb", "蛛网"),
+                new("Abur", "钻地"),
+                new("ufro", "冰霜巨龙"),
+                new("ugar", "石像鬼"),
+                new("Astn", "石像形态"),
+                new("ugho", "食尸鬼"),
+                new("Acan", " 吞食尸体"),
+                new("unec", "亡灵巫师"),
+                new("Arai", "复活死尸"),
+                new("Auhf", "邪恶狂热"),
+                new("Acri", "残废"),
+                new("umtw", "绞肉车"),
+                new("Amel", "得到尸体"),
+                new("Amed", "卸载尸体"),
+                new("uobs", "十胜石雕像"),
+                new("Arpm", "灵魂触摸"),
+                new("Arpl", "枯萎精髓"),
+                new("ubsp", "变形为破坏者"),
+                new("Afak", "毁灭之球"),
+                new("Advm", "吞噬魔法"),
+                new("Aabs", "吸收魔法"),
+            });
+            race.Add(new Entry[] {
+                new("Rusp", "研究破坏者形态"),
+                new("Rume", "邪恶力量升级"),
+                new("Rura", "生物攻击升级"),
+                new("Ruar", "邪恶装甲升级"),
+                new("Rucr", "生物甲壳升级"),
+                new("Ruac", "吞食尸体"),
+                new("Rugf", "食尸鬼狂热"),
+                new("Ruwb", "蛛网"),
+                new("Rusf", "石像形态"),
+                new("Rune", "亡灵巫师训练升级"),
+                new("Ruba", "女妖训练升级"),
+                new("Rufb", "冰冻喷吐"),
+                new("Rusl", "骨质增强术"),
+                new("Rupc", "疾病云雾"),
+                new("Rusm", "骷髅法术"),
+                new("Rubu", "钻地"),
+                new("Ruex", "挖掘尸体"),
+                new("Rupm", "背包技能"),
+                new("ubon", "埋骨地"),
+                new("usap", "牺牲深渊"),
+                new("Alam", "牺牲"),
+                new("uslh", "屠宰场"),
+                new("ugrv", "坟场"),
+                new("uaod", "黑暗祭坛"),
+                new("unpl", "大墓地"),
+                new("unp1", "亡者大厅"),
+                new("unp2", "黑色城堡"),
+                new("usep", "地穴"),
+                new("utod", "诅咒神庙"),
+                new("utom", "古墓废墟"),
+                new("ugol", "闹鬼金矿"),
+                new("uzig", "通灵塔"),
+                new("uzg1", "幽魂之塔"),
+                new("uzg2", "蛛网怪塔"),
+            });
+            #endregion
         }
     }
 }

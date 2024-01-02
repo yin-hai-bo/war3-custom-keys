@@ -20,7 +20,8 @@ namespace yhb_war3_custom_keys{
             string[] TabNames = {
                 "Human", 
                 "Orc",
-                // "Undead", "Night Elves",
+                "Undead",
+                //"Night Elves",
                 "Common",
             };
             string[] GroupNames = {
