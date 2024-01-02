@@ -32,7 +32,7 @@ namespace yhb_war3_custom_keys{
                     if (category.KindCount == 1) {
                         IEnumerator<KeyDefinesGroup.Entry[]> it = category.GetEnumerator();
                         it.MoveNext();
-                        new KeyDefineGui(keyDefines, page, it.Current);
+                        KeyDefinesToListView.Execute(keyDefines, page, it.Current);
                         continue;
                     }
 
@@ -50,7 +50,7 @@ namespace yhb_war3_custom_keys{
                             BackColor = page.BackColor,
                             ForeColor = page.ForeColor,
                         };
-                        new KeyDefineGui(keyDefines, subPage, entries);
+                        KeyDefinesToListView.Execute(keyDefines, subPage, entries);
                         ++idx;
                     }
                 }

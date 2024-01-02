@@ -1,8 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 using yhb_war3_custom_keys.model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace yhb_war3_custom_keys.view {
-    public class KeyDefineGui {
+
+    public static class KeyDefinesToListView {
         private static readonly Pen PEN_GRID_LINE = new Pen(Color.FromArgb(255, 80, 80, 80), 1);
 
         private static readonly Brush BRUSH_HEAD_BACKGROUND = new SolidBrush(Color.FromArgb(255, 40, 40, 50));
@@ -11,9 +13,6 @@ namespace yhb_war3_custom_keys.view {
         private static readonly Brush BRUSH_ROW_BACKGROUND = Brushes.Black;
         private static readonly Brush BRUSH_ROW_FOREGROUND = Brushes.White;
 
-        private readonly ListView _listView;
-        private readonly Font _titleFont;
-
         private enum SubItemTag {
             Hotkey,
             Unhotkey,
@@ -21,53 +20,54 @@ namespace yhb_war3_custom_keys.view {
             Tip,
         }
 
-        public KeyDefineGui(KeyDefines keyDefines, Control parent,
-            IReadOnlyCollection<KeyDefinesGroup.Entry> entries) {
+        public static void Execute(KeyDefines keyDefines, Control parent, IReadOnlyCollection<KeyDefinesGroup.Entry> entries) {
+            ListView listView = new() {
+                Parent = parent,
+                Dock = DockStyle.Fill,
+                View = View.Details,
+                HeaderStyle = ColumnHeaderStyle.Nonclickable,
+                OwnerDraw = true,
+                BackColor = Color.Black,
+                ForeColor = Color.White,
+                FullRowSelect = true
+            };
+            listView.DrawColumnHeader += OnListViewDrawColumnHeader;
+            listView.DrawItem += OnListViewDrawItem;
+            listView.DrawSubItem += OnListViewDrawSubItem;
 
-            _titleFont = new Font(parent.Font, FontStyle.Bold);
-
-            _listView = new ListView();
-            _listView.Parent = parent;
-            _listView.BeginUpdate();
-            AddEntriesToListView(keyDefines, entries);
-            _listView.EndUpdate();
+            listView.BeginUpdate();
+            AddEntriesToListView(keyDefines, entries, listView);
+            listView.EndUpdate();
         }
 
-        private void AddEntriesToListView(KeyDefines keyDefines, IReadOnlyCollection<KeyDefinesGroup.Entry> entries) {
-            _listView.Dock = DockStyle.Fill;
-            _listView.View = View.Details;
-            _listView.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            _listView.OwnerDraw = true;
-            _listView.BackColor = Color.Black;
-            _listView.ForeColor = Color.White;
-            _listView.FullRowSelect = true;
+        private static void AddEntriesToListView(
+            KeyDefines keyDefines,
+            IReadOnlyCollection<KeyDefinesGroup.Entry> entries,
+            ListView listView) {
 
-            _listView.DrawColumnHeader += this.OnListViewDrawColumnHeader;
-            _listView.DrawItem += this.OnListViewDrawItem;
-            _listView.DrawSubItem += this.OnListViewDrawSubItem;
-
-            _listView.Columns.Add(string.Empty);
-            _listView.Columns.Add("Hotkey").TextAlign = HorizontalAlignment.Center;
-            _listView.Columns.Add("Unhotkey").TextAlign = HorizontalAlignment.Center;
-            _listView.Columns.Add("Researchhotkey").TextAlign = HorizontalAlignment.Center;
-            _listView.Columns.Add("Tip");
+            var columns = listView.Columns;
+            columns.Add(string.Empty);
+            columns.Add("Hotkey").TextAlign = HorizontalAlignment.Center;
+            columns.Add("Unhotkey").TextAlign = HorizontalAlignment.Center;
+            columns.Add("Researchhotkey").TextAlign = HorizontalAlignment.Center;
+            columns.Add("Tip");
 
             foreach (var entry in entries) {
                 var section = keyDefines.GetSection(entry.SectionName);
                 if (section != null) {
-                    var row = _listView.Items.Add(entry.Description);
+                    var row = listView.Items.Add(entry.Description);
                     AddSubItem(row, section.Find("Hotkey"), SubItemTag.Hotkey);
                     AddSubItem(row, section.Find("Unhhotkey"), SubItemTag.Unhotkey);
                     AddSubItem(row, section.Find("Researchhotkey"), SubItemTag.Researchhotkey);
                     AddSubItem(row, section.Find("Tip"), SubItemTag.Tip);
                 }
             }
-            foreach (ColumnHeader col in _listView.Columns) {
+            foreach (ColumnHeader col in columns) {
                 col.Width = -2;
             }
         }
 
-        private void OnListViewDrawItem(object? sender, DrawListViewItemEventArgs e) {
+        private static void OnListViewDrawItem(object? sender, DrawListViewItemEventArgs e) {
         }
 
         private static void AddSubItem(ListViewItem row, string? text, SubItemTag tag) {
@@ -82,7 +82,7 @@ namespace yhb_war3_custom_keys.view {
             }
         }
 
-        private void OnListViewDrawSubItem(object? sender, DrawListViewSubItemEventArgs e) {
+        private static void OnListViewDrawSubItem(object? sender, DrawListViewSubItemEventArgs e) {
             if (e.SubItem == null) {
                 e.DrawDefault = true;
                 return;
@@ -92,7 +92,8 @@ namespace yhb_war3_custom_keys.view {
             StringFormat sf = StringFormat.GenericTypographic;
             sf.LineAlignment = StringAlignment.Center;
 
-            if (DrawTextIfAlignCenter(e, sf)) {
+            ListView listView = e.Item.ListView;
+            if (DrawTextIfAlignCenter(listView, e, sf)) {
                 return;
             }
 
@@ -107,15 +108,15 @@ namespace yhb_war3_custom_keys.view {
                     brush = BRUSH_ROW_FOREGROUND;
                 }
 
-                var size = e.Graphics.MeasureString(token.Text, _listView.Font);
+                var size = e.Graphics.MeasureString(token.Text, listView.Font);
                 RectangleF rc = bounds;
                 rc.Width = size.Width;
-                e.Graphics.DrawString(token.Text, _listView.Font, brush, rc, sf);
+                e.Graphics.DrawString(token.Text, listView.Font, brush, rc, sf);
                 bounds.X += size.Width;
             }
         }
 
-        private bool DrawTextIfAlignCenter(DrawListViewSubItemEventArgs e, StringFormat sf) {
+        private static bool DrawTextIfAlignCenter(ListView listView, DrawListViewSubItemEventArgs e, StringFormat sf) {
             if (e.SubItem == null) {
                 return false;
             }
@@ -127,7 +128,7 @@ namespace yhb_war3_custom_keys.view {
                 case SubItemTag.Unhotkey:
                 case SubItemTag.Researchhotkey:
                     sf.Alignment = StringAlignment.Center;
-                    e.Graphics.DrawString(e.SubItem.Text, _listView.Font,
+                    e.Graphics.DrawString(e.SubItem.Text, listView.Font,
                         new SolidBrush(e.SubItem.ForeColor),
                         e.Bounds, sf);
                     return true;
@@ -144,12 +145,13 @@ namespace yhb_war3_custom_keys.view {
             e.Graphics.DrawRectangle(PEN_GRID_LINE, e.Bounds);
         }
 
-        private void OnListViewDrawColumnHeader(object? sender, DrawListViewColumnHeaderEventArgs e) {
+        private static void OnListViewDrawColumnHeader(object? sender, DrawListViewColumnHeaderEventArgs e) {
+            ListView listView = (ListView)sender;
             e.Graphics.FillRectangle(BRUSH_HEAD_BACKGROUND, e.Bounds);
             e.Graphics.DrawRectangle(PEN_GRID_LINE, e.Bounds);
             e.Graphics.DrawString(
-                _listView.Columns[e.ColumnIndex].Text,
-                _titleFont,
+                listView.Columns[e.ColumnIndex].Text,
+                new Font(listView.Font, FontStyle.Bold),
                 BRUSH_HEAD_FOREGROUND,
                 e.Bounds);
         }
