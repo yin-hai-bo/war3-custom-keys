@@ -1,4 +1,3 @@
-using war3_custom_keys.model;
 using yhb_war3_custom_keys.model;
 using yhb_war3_custom_keys.res;
 using yhb_war3_custom_keys.view;
@@ -11,6 +10,7 @@ namespace yhb_war3_custom_keys {
         }
 
         private void FormMain_Load(object sender, EventArgs e) {
+            this.Text = Resources.S_APP_NAME;
             FormChild.Create(
                 this,
                 Resources.S_DEFAULT_KEY_DEFINES,                

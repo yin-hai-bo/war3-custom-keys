@@ -92,7 +92,11 @@ namespace yhb_war3_custom_keys.view {
             StringFormat sf = StringFormat.GenericTypographic;
             sf.LineAlignment = StringAlignment.Center;
 
-            ListView listView = e.Item.ListView;
+            ListView? listView = sender as ListView;
+            if (listView == null) {
+                e.DrawDefault = true;
+                return;
+            }
             if (DrawTextIfAlignCenter(listView, e, sf)) {
                 return;
             }
@@ -146,7 +150,11 @@ namespace yhb_war3_custom_keys.view {
         }
 
         private static void OnListViewDrawColumnHeader(object? sender, DrawListViewColumnHeaderEventArgs e) {
-            ListView listView = (ListView)sender;
+            ListView? listView = sender as ListView;
+            if (listView == null) {
+                e.DrawDefault = true;
+                return;
+            }
             e.Graphics.FillRectangle(BRUSH_HEAD_BACKGROUND, e.Bounds);
             e.Graphics.DrawRectangle(PEN_GRID_LINE, e.Bounds);
             e.Graphics.DrawString(

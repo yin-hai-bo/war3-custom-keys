@@ -117,68 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CustomKeysSample" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>CustomKeysSample.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="CustomKeysSample_cn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>CustomKeysSample-cn.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="S_APP_NAME" xml:space="preserve">
-    <value>Warcraft III Custom Keys Editor</value>
+    <value>魔兽争霸 III 热键定义</value>
   </data>
   <data name="S_CANCEL" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="S_DEFAULT_KEY_DEFINES" xml:space="preserve">
-    <value>Default Key Defines</value>
+    <value>默认定义</value>
   </data>
   <data name="S_ERROR" xml:space="preserve">
-    <value>Error</value>
+    <value>错误</value>
   </data>
   <data name="S_HOTKEY_DEFINE_NOT_FOUND" xml:space="preserve">
-    <value>The 'Hotkey' define not found.</value>
+    <value>热键定义未找到</value>
   </data>
   <data name="S_INVALID_LINE" xml:space="preserve">
-    <value>Invalid line.</value>
+    <value>无效的行</value>
   </data>
   <data name="S_LINE" xml:space="preserve">
-    <value>Line</value>
+    <value>行</value>
   </data>
   <data name="S_OK" xml:space="preserve">
-    <value>Ok</value>
+    <value>确定</value>
   </data>
   <data name="S_PAGE_BUILDING" xml:space="preserve">
-    <value>Building</value>
+    <value>建筑</value>
   </data>
   <data name="S_PAGE_COMMON" xml:space="preserve">
-    <value>Common</value>
+    <value>公用</value>
   </data>
   <data name="S_PAGE_HEROES" xml:space="preserve">
-    <value>Heroes</value>
+    <value>英雄</value>
   </data>
   <data name="S_PAGE_HUMAN" xml:space="preserve">
-    <value>Human</value>
+    <value>人族</value>
   </data>
   <data name="S_PAGE_NEUTRAL" xml:space="preserve">
-    <value>Neutral</value>
+    <value>中立</value>
   </data>
   <data name="S_PAGE_NIGHT_ELVES" xml:space="preserve">
-    <value>Night Elves</value>
+    <value>暗夜精灵</value>
   </data>
   <data name="S_PAGE_ORC" xml:space="preserve">
-    <value>Orc</value>
+    <value>兽人</value>
   </data>
   <data name="S_PAGE_UNDEAD" xml:space="preserve">
-    <value>Undead</value>
+    <value>亡灵</value>
   </data>
   <data name="S_PAGE_UNITS" xml:space="preserve">
-    <value>Units</value>
+    <value>单位</value>
   </data>
   <data name="S_SECTION_DEFINE_EXPECTED" xml:space="preserve">
-    <value>The section define expected.</value>
+    <value>应该出现 [] 定义</value>
   </data>
   <data name="S_WARNING" xml:space="preserve">
-    <value>Warning</value>
+    <value>警告</value>
   </data>
 </root>

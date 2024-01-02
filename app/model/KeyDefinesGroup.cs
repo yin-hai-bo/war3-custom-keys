@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using yhb_war3_custom_keys.res;
 
 namespace yhb_war3_custom_keys.model {
     public static class KeyDefinesGroup {
@@ -43,7 +44,7 @@ namespace yhb_war3_custom_keys.model {
         static KeyDefinesGroup() {
 
             #region Human
-            Category category = new("Human");
+            Category category = new(Resources.S_PAGE_HUMAN);
             CATEGORY_LIST.Add(category);
             category.Add(new Entry[] {
                 new("Hblm", "血法师"),
@@ -139,7 +140,7 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Orc
-            category = new("Orc");
+            category = new(Resources.S_PAGE_ORC);
             CATEGORY_LIST.Add(category);
             category.Add(new Entry[] {
                 new("Obla", "剑圣"),
@@ -232,7 +233,7 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Undead
-            category = new("Undead");
+            category = new(Resources.S_PAGE_UNDEAD);
             CATEGORY_LIST.Add(category);
             category.Add(new Entry[] {
                 new("Ucrl", "地穴领主"),
@@ -333,7 +334,7 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Night Elves
-            category = new("Night Elves");
+            category = new(Resources.S_PAGE_NIGHT_ELVES);
             CATEGORY_LIST.Add(category);
             category.Add(new Entry[] {
                 new("Edem", "恶魔猎手"),
@@ -438,7 +439,7 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Neutral heroes
-            category = new("Neutral");
+            category = new(Resources.S_PAGE_NEUTRAL);
             CATEGORY_LIST.Add(category);
             category.Add(new Entry[] {
                 new("Nngs", "娜迦女海巫"),
@@ -515,7 +516,7 @@ namespace yhb_war3_custom_keys.model {
             #endregion
 
             #region Common
-            category = new("Common");
+            category = new(Resources.S_PAGE_COMMON);
             CATEGORY_LIST.Add(category);
             category.Add(new Entry[] {
                 new("CmdMove", "移动"),

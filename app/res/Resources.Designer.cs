@@ -132,15 +132,6 @@ namespace yhb_war3_custom_keys.res {
         /// <summary>
         ///   Looks up a localized string similar to Warcraft III Custom Keys Editor.
         /// </summary>
-        internal static string FormMain_Text {
-            get {
-                return ResourceManager.GetString("FormMain.Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Warcraft III Custom Keys Editor.
-        /// </summary>
         internal static string S_APP_NAME {
             get {
                 return ResourceManager.GetString("S_APP_NAME", resourceCulture);
@@ -207,6 +198,87 @@ namespace yhb_war3_custom_keys.res {
         internal static string S_OK {
             get {
                 return ResourceManager.GetString("S_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Building.
+        /// </summary>
+        internal static string S_PAGE_BUILDING {
+            get {
+                return ResourceManager.GetString("S_PAGE_BUILDING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Common.
+        /// </summary>
+        internal static string S_PAGE_COMMON {
+            get {
+                return ResourceManager.GetString("S_PAGE_COMMON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Heroes.
+        /// </summary>
+        internal static string S_PAGE_HEROES {
+            get {
+                return ResourceManager.GetString("S_PAGE_HEROES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Human.
+        /// </summary>
+        internal static string S_PAGE_HUMAN {
+            get {
+                return ResourceManager.GetString("S_PAGE_HUMAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neutral.
+        /// </summary>
+        internal static string S_PAGE_NEUTRAL {
+            get {
+                return ResourceManager.GetString("S_PAGE_NEUTRAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Night Elves.
+        /// </summary>
+        internal static string S_PAGE_NIGHT_ELVES {
+            get {
+                return ResourceManager.GetString("S_PAGE_NIGHT_ELVES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orc.
+        /// </summary>
+        internal static string S_PAGE_ORC {
+            get {
+                return ResourceManager.GetString("S_PAGE_ORC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undead.
+        /// </summary>
+        internal static string S_PAGE_UNDEAD {
+            get {
+                return ResourceManager.GetString("S_PAGE_UNDEAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Units.
+        /// </summary>
+        internal static string S_PAGE_UNITS {
+            get {
+                return ResourceManager.GetString("S_PAGE_UNITS", resourceCulture);
             }
         }
         
