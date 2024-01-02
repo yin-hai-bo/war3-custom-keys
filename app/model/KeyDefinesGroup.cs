@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.Security.Cryptography;
 
 namespace yhb_war3_custom_keys.model {
@@ -13,38 +14,13 @@ namespace yhb_war3_custom_keys.model {
             }
         }
 
-        public static readonly Entry[] COMMON_ENTRIES = new Entry[] {
-            new("CmdMove", "移动"),
-            new("CmdAttack", "攻击"),
-            new("CmdAttackGround", "攻击地面"),
-            new("CmdBuild", "建造建筑物（一般的）"),
-            new("CmdBuildHuman", "建造建筑物（人类）"),
-            new("CmdBuildOrc", "建造建筑物（兽族）"),
-            new("CmdBuildNightElf", "建造建筑物（暗夜精灵）"),
-            new("CmdBuildUndead", "召唤建筑物（亡灵）"),
-            new("CmdCancel", "取消"),
-            new("CmdCancelBuild", "取消建造"),
-            new("CmdCancelTrain", "取消训练"),
-            new("CmdCancelRevive", "取消复活"),
-            new("CmdHoldPos", "保持原位"),
-            new("CmdPatrol", "巡逻"),
-            new("CmdRally", "设集结点"),
-            new("CmdSelectSkill", "英雄技能"),
-            new("CmdStop", "停止"),
-            new("Ahar", "采集"),
-            new("Ahrl", "采集木材"),
-            new("Arep", "农民修理技能"),
-            new("Anei", "中立单位的互动（选择用户命令）"),
-            new("Aloa", "装载"),
-            new("Adro", "卸载全部"),
-            new("Sdro", "卸载（海上运输工具）"),
-        };
-
         public static readonly List<Entry[]>[] RACE_ENTRIES = new [] {
             new List<Entry[]>(3),
             new List<Entry[]>(3),
             new List<Entry[]>(3),
             new List<Entry[]>(3),
+            new List<Entry[]>(1),
+            new List<Entry[]>(1),
         };
 
         static KeyDefinesGroup() {
@@ -437,6 +413,112 @@ namespace yhb_war3_custom_keys.model {
                 new("edos", "奇美拉栖木"),
                 new("emow", "月亮井"),
                 new("Ambt", "补充魔法和生命值"),
+            });
+            #endregion
+
+            #region Neutral heroes
+            race = RACE_ENTRIES[4];
+            race.Add(new Entry[] {
+                new("Nngs", "娜迦女海巫"),
+                new("ANms", "魔法护盾"),
+                new("ANfl", "叉状闪电"),
+                new("ANfa", "霜冻之箭 "),
+                new("ANto", "龙卷风"),
+                new("Nplh", "深渊魔王"),
+                new("ANht", "恐怖嚎叫"),
+                new("ANrf", "火焰雨"),
+                new("ANca", "分裂攻击"),
+                new("ANdo", "毁灭"),
+                new("Npbm", "熊猫酒仙"),
+                new("ANbf", "火焰呼吸"),
+                new("ANdb", "醉拳"),
+                new("ANdh", "醉酒云雾"),
+                new("ANef", "火土风暴"),
+                new("ANwk", "疾风步"),
+                new("ACcy", "飓风"),
+                new("Adsm", "驱逐魔法"),
+                new("ANta", "嘲讽"),
+                new("Nbst", "驯兽师"),
+                new("ANsg", "熊"),
+                new("ANsq", "豪猪"),
+                new("ANsw", "战鹰"),
+                new("ANst", "惊吓"),
+                new("ANbl", "闪烁"),
+                new("Nbrn", "黑暗游侠"),
+                new("ANba", "黑暗之箭"),
+                new("ANsi", "沉默魔法"),
+                new("ANdr", "生命汲取"),
+                new("ANch", "符咒"),
+                new("Ntin", "修补匠"),
+                new("Nrob", "修补匠（变形/机械地精）"),
+                new("ANsy", "口袋工厂"),
+                new("ANs1", "口袋工厂"),
+                new("ANs2", "口袋工厂"),
+                new("ANs3", "口袋工厂"),
+                new("ANcs", "火箭群"),
+                new("ANc1", "火箭群"),
+                new("ANc2", "火箭群"),
+                new("ANc3", "火箭群"),
+                new("ANeg", "工程升级 "),
+                new("ANrg", "机器人地精"),
+                new("ANg1", "机器人地精"),
+                new("ANg2", "机器人地精"),
+                new("ANg3", "机器人地精"),
+                new("ANde", "粉碎"),
+                new("ANd1", "粉碎"),
+                new("ANd2", "粉碎"),
+                new("ANd3", "粉碎"),
+                new("ANfy", "工厂"),
+                new("ANf1", "工厂"),
+                new("ANf2", "工厂"),
+                new("ANf3", "工厂"),
+                new("Asdg", "自爆！（等级1）"),
+                new("Asd2", "自爆！（等级2）"),
+                new("Asd3", "自爆！（等级3）"),
+                new("Nalc", "炼金术士"),
+                new("Nalm", "炼金术士"),
+                new("Nal2", "炼金术士"),
+                new("Nal3", "炼金术士"),
+                new("ANhs", "医疗气雾 "),
+                new("ANab", "酸性炸弹"),
+                new("ANcr", "化学风暴"),
+                new("ANtm", "点金术"),
+                new("Nfir", "火焰巨魔"),
+                new("ANic", "燃灰"),
+                new("ANia", "燃灰 (Arrow)"),
+                new("ANso", "灵魂燃烧"),
+                new("ANlm", "召唤炎魔"),
+                new("ANvc", "火山爆发"),
+            });
+            #endregion
+
+            #region Common
+            race = RACE_ENTRIES[5];
+            race.Add(new Entry[] {
+                new("CmdMove", "移动"),
+                new("CmdAttack", "攻击"),
+                new("CmdAttackGround", "攻击地面"),
+                new("CmdBuild", "建造建筑物（一般的）"),
+                new("CmdBuildHuman", "建造建筑物（人类）"),
+                new("CmdBuildOrc", "建造建筑物（兽族）"),
+                new("CmdBuildNightElf", "建造建筑物（暗夜精灵）"),
+                new("CmdBuildUndead", "召唤建筑物（亡灵）"),
+                new("CmdCancel", "取消"),
+                new("CmdCancelBuild", "取消建造"),
+                new("CmdCancelTrain", "取消训练"),
+                new("CmdCancelRevive", "取消复活"),
+                new("CmdHoldPos", "保持原位"),
+                new("CmdPatrol", "巡逻"),
+                new("CmdRally", "设集结点"),
+                new("CmdSelectSkill", "英雄技能"),
+                new("CmdStop", "停止"),
+                new("Ahar", "采集"),
+                new("Ahrl", "采集木材"),
+                new("Arep", "农民修理技能"),
+                new("Anei", "中立单位的互动（选择用户命令）"),
+                new("Aloa", "装载"),
+                new("Adro", "卸载全部"),
+                new("Sdro", "卸载（海上运输工具）"),
             });
             #endregion
         }

@@ -13,53 +13,58 @@ namespace yhb_war3_custom_keys{
         }
 
         private void FormMain_Load(object sender, EventArgs e) {
-            InitializeAllTables();
+            TabPagesInitializer.Execute(this.tabControlMain, _defaultKeyDefines);
         }
 
-        private void InitializeAllTables() {
-            string[] TabNames = {
+        private static class TabPagesInitializer {
+            private static readonly string[] TabNames = {
                 "Human", 
                 "Orc",
                 "Undead",
                 "Night Elves",
+                "Neutral",
                 "Common",
             };
-            string[] GroupNames = {
+            private static readonly string[] GroupNames = {
                 "Heroes", "Units", "Building",
             };
-            int index = 0;
-            foreach (string name in TabNames) {
 
-                // Human, Orc, Undead, Night Elves, or Common
-                TabPage page = new TabPage(name) {
-                    Parent = this.tabControlMain,
-                    BackColor = Color.Black,
-                    ForeColor = Color.White
-                };
+            public static void Execute(TabControl tabControl, KeyDefines keyDefines) {
+                int index = 0;
+                foreach (string name in TabNames) {
+                    TabPage page = new TabPage(name) {
+                        Parent = tabControl,
+                        BackColor = Color.Black,
+                        ForeColor = Color.White
+                    };
+                    var entries = KeyDefinesGroup.RACE_ENTRIES[index];
 
-                if (tabControlMain.TabCount >= TabNames.Length) {
-                    new KeyDefineGui(_defaultKeyDefines, page, KeyDefinesGroup.COMMON_ENTRIES);
-                    continue;
-                }
+                    // Only one sub-page.
+                    if (entries.Count == 1) {
+                        new KeyDefineGui(keyDefines, page, entries[0]);
+                        continue;
+                    }
 
-                TabControl tc = new TabControl {
-                    Parent = page,
-                    BackColor = page.BackColor,
-                    ForeColor = page.ForeColor,
-                    Dock = DockStyle.Fill,
-                    Alignment = TabAlignment.Left,
-                };
-                var race = KeyDefinesGroup.RACE_ENTRIES[index];
-                int sub = 0;
-                foreach (string group in GroupNames) {
-                    TabPage subPage = new TabPage(group) {
-                        Parent = tc,
+                    // Has three sub-pages.
+
+                    TabControl tc = new TabControl {
+                        Parent = page,
                         BackColor = page.BackColor,
                         ForeColor = page.ForeColor,
+                        Dock = DockStyle.Fill,
+                        Alignment = TabAlignment.Left,
                     };
-                    new KeyDefineGui(_defaultKeyDefines, subPage, race[sub++]);
+                    int sub = 0;
+                    foreach (string group in GroupNames) {
+                        TabPage subPage = new TabPage(group) {
+                            Parent = tc,
+                            BackColor = page.BackColor,
+                            ForeColor = page.ForeColor,
+                        };
+                        new KeyDefineGui(keyDefines, subPage, entries[sub++]);
+                    }
+                    ++index;
                 }
-                ++index;
             }
         }
 

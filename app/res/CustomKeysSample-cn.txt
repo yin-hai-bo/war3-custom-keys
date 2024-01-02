@@ -2388,6 +2388,7 @@ Tip=(|cffffcc00B|r)闪烁
 // 黑暗游侠
 ///////////////////////
 
+//黑暗游侠
 [Nbrn]
 Hotkey=R
 Tip= (|cffffcc00R|r)召唤黑暗游侠
@@ -2661,6 +2662,7 @@ Researchhotkey=T
 // 火焰巨魔
 ///////////////////////
 
+//火焰巨魔
 [Nfir]
 Hotkey=O
 Tip= (|cffffcc00w|r)召唤火焰巨魔
