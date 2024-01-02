@@ -166,11 +166,29 @@ namespace yhb_war3_custom_keys.res {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expect a filename after the {0} option..
+        /// </summary>
+        internal static string S_EXPECT_FILENAME_AFTER_FILE_OPTION {
+            get {
+                return ResourceManager.GetString("S_EXPECT_FILENAME_AFTER_FILE_OPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The &apos;Hotkey&apos; define not found..
         /// </summary>
         internal static string S_HOTKEY_DEFINE_NOT_FOUND {
             get {
                 return ResourceManager.GetString("S_HOTKEY_DEFINE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid command line.
+        /// </summary>
+        internal static string S_INVALID_CMDLINE {
+            get {
+                return ResourceManager.GetString("S_INVALID_CMDLINE", resourceCulture);
             }
         }
         
@@ -288,6 +306,15 @@ namespace yhb_war3_custom_keys.res {
         internal static string S_SECTION_DEFINE_EXPECTED {
             get {
                 return ResourceManager.GetString("S_SECTION_DEFINE_EXPECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown option &apos;{0}&apos;..
+        /// </summary>
+        internal static string S_UNKNOWN_OPTION {
+            get {
+                return ResourceManager.GetString("S_UNKNOWN_OPTION", resourceCulture);
             }
         }
         

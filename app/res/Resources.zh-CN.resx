@@ -129,8 +129,14 @@
   <data name="S_ERROR" xml:space="preserve">
     <value>错误</value>
   </data>
+  <data name="S_EXPECT_FILENAME_AFTER_FILE_OPTION" xml:space="preserve">
+    <value>在 {0} 开关后面应该有一个文件名。</value>
+  </data>
   <data name="S_HOTKEY_DEFINE_NOT_FOUND" xml:space="preserve">
     <value>热键定义未找到</value>
+  </data>
+  <data name="S_INVALID_CMDLINE" xml:space="preserve">
+    <value>无效的命令行</value>
   </data>
   <data name="S_INVALID_LINE" xml:space="preserve">
     <value>无效的行</value>
@@ -170,6 +176,9 @@
   </data>
   <data name="S_SECTION_DEFINE_EXPECTED" xml:space="preserve">
     <value>应该出现 [] 定义</value>
+  </data>
+  <data name="S_UNKNOWN_OPTION" xml:space="preserve">
+    <value>未知选项 '{0}'。</value>
   </data>
   <data name="S_WARNING" xml:space="preserve">
     <value>警告</value>

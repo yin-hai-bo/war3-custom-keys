@@ -136,8 +136,14 @@
   <data name="S_ERROR" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="S_EXPECT_FILENAME_AFTER_FILE_OPTION" xml:space="preserve">
+    <value>Expect a filename after the {0} option.</value>
+  </data>
   <data name="S_HOTKEY_DEFINE_NOT_FOUND" xml:space="preserve">
     <value>The 'Hotkey' define not found.</value>
+  </data>
+  <data name="S_INVALID_CMDLINE" xml:space="preserve">
+    <value>Invalid command line</value>
   </data>
   <data name="S_INVALID_LINE" xml:space="preserve">
     <value>Invalid line.</value>
@@ -177,6 +183,9 @@
   </data>
   <data name="S_SECTION_DEFINE_EXPECTED" xml:space="preserve">
     <value>The section define expected.</value>
+  </data>
+  <data name="S_UNKNOWN_OPTION" xml:space="preserve">
+    <value>Unknown option '{0}'.</value>
   </data>
   <data name="S_WARNING" xml:space="preserve">
     <value>Warning</value>

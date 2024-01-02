@@ -6,20 +6,37 @@ using yhb_war3_custom_keys.view;
 namespace yhb_war3_custom_keys {
     public partial class FormMain : Form {
 
+        private bool _firstShown = true;
+
         public FormMain() {
             InitializeComponent();
         }
 
         private void FormMain_Load(object sender, EventArgs e) {
             this.Text = Resources.S_APP_NAME;
-            FormChild.Create(
-                this,
-                Resources.S_DEFAULT_KEY_DEFINES,
-                KeyDefines.CreateFromString(Resources.CustomKeysSample_cn));
         }
 
         private void FormMain_Shown(object sender, EventArgs e) {
+            if (!_firstShown) {
+                return;
+            }
+            _firstShown = false;
 
+            // The default key defines
+            FormChild.Create(this, Resources.S_DEFAULT_KEY_DEFINES,
+                KeyDefines.CreateFromString(Resources.CustomKeysSample_cn));
+
+            CmdLine cmdLine = new CmdLine();
+            try {
+                cmdLine.Parse(Environment.GetCommandLineArgs());
+            } catch(CmdLine.Exception ex) {
+                ErrorBox.Show(this, ex.Message);
+            }
+            if (cmdLine.IsValid) {
+                foreach (string filename in cmdLine.Files) {
+                    TryToCreateFormChildFromFile(filename);
+                }
+            }
         }
 
         private void FormMain_DragEnter(object sender, DragEventArgs e) {
@@ -33,21 +50,22 @@ namespace yhb_war3_custom_keys {
                 return;
             }
             foreach (string filename in files) {
-                try {
-                    KeyDefines keyDefines = KeyDefines.CreateFromFile(filename);
-                    FormChild.Create(this, filename, keyDefines);
-                } catch (IOException ex) {
-                    ErrorBox.Show(this, ex.Message);
-                }
+                TryToCreateFormChildFromFile(filename);
+            }
+        }
+
+        private void TryToCreateFormChildFromFile(string filename) {
+            try {
+                KeyDefines keyDefines = KeyDefines.CreateFromFile(filename);
+                FormChild.Create(this, filename, keyDefines);
+            } catch (IOException ex) {
+                ErrorBox.Show(this, ex.Message);
             }
         }
 
         private static string[]? GetFilenamesFromDrag(DragEventArgs e) {
             var data = e.Data;
-            if (data == null) {
-                return null;
-            }
-            return data.GetData("FileDrop") as string[];
+            return data?.GetData("FileDrop") as string[];
         }
     }
 }
