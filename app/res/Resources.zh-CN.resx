@@ -180,6 +180,9 @@
   <data name="S_PAGE_UNITS" xml:space="preserve">
     <value>单位</value>
   </data>
+  <data name="S_READONLY" xml:space="preserve">
+    <value>不可修改</value>
+  </data>
   <data name="S_SAVE" xml:space="preserve">
     <value>保存</value>
   </data>
@@ -193,7 +196,7 @@
     <value>未知选项 '{0}'。</value>
   </data>
   <data name="S_UNTITLED" xml:space="preserve">
-    <value>(未命名) - {0}</value>
+    <value>未命名</value>
   </data>
   <data name="S_WARNING" xml:space="preserve">
     <value>警告</value>

@@ -26,7 +26,9 @@ namespace yhb_war3_custom_keys {
             _firstShown = false;
 
             // The default key defines.
-            FormChild.Create(this, Resources.S_DEFAULT_KEY_DEFINES, CreateDefaultKeyDefines(), "", true);
+            FormChild.Create(this,
+                $"{Resources.S_DEFAULT_KEY_DEFINES} ({Resources.S_READONLY})",
+                CreateDefaultKeyDefines(), "", true);
 
             // Open the file specified on the command line.
             CmdLine cmdLine = new CmdLine();
@@ -85,7 +87,7 @@ namespace yhb_war3_custom_keys {
         private void newMenu_Click(object sender, EventArgs e) {
             ++_newDocCount;
             FormChild.Create(this,
-                string.Format(Resources.S_UNTITLED, _newDocCount),
+                $"({Resources.S_UNTITLED} - {_newDocCount})",
                 CreateDefaultKeyDefines(),
                 null, false);
         }

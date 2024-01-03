@@ -187,6 +187,9 @@
   <data name="S_PAGE_UNITS" xml:space="preserve">
     <value>Units</value>
   </data>
+  <data name="S_READONLY" xml:space="preserve">
+    <value>Read only</value>
+  </data>
   <data name="S_SAVE" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -200,7 +203,7 @@
     <value>Unknown option '{0}'.</value>
   </data>
   <data name="S_UNTITLED" xml:space="preserve">
-    <value>Untitled - {0}</value>
+    <value>Untitled</value>
   </data>
   <data name="S_WARNING" xml:space="preserve">
     <value>Warning</value>

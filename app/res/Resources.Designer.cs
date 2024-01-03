@@ -319,6 +319,15 @@ namespace yhb_war3_custom_keys.res {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Read only.
+        /// </summary>
+        internal static string S_READONLY {
+            get {
+                return ResourceManager.GetString("S_READONLY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string S_SAVE {
@@ -355,7 +364,7 @@ namespace yhb_war3_custom_keys.res {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Untitled - {0}.
+        ///   Looks up a localized string similar to Untitled.
         /// </summary>
         internal static string S_UNTITLED {
             get {
