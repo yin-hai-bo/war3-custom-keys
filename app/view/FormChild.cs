@@ -32,6 +32,10 @@ namespace yhb_war3_custom_keys.view {
             InitializeGui(_keyDefines);
         }
 
+        private void OnEditEntry(KeyDefinesCategory.Entry entry) {
+            
+        }
+
         private void InitializeGui(KeyDefines keyDefines) {
             string[] subPageNames = new string[3];
             subPageNames[0] = Resources.S_PAGE_HEROES;
@@ -48,7 +52,7 @@ namespace yhb_war3_custom_keys.view {
                 if (category.KindCount == 1) {
                     IEnumerator<KeyDefinesCategory.Entry[]> it = category.GetEnumerator();
                     it.MoveNext();
-                    KeyDefinesToListView.Execute(keyDefines, page, it.Current);
+                    new KeyDefinesToListView(page, keyDefines, it.Current, null); // FIXME
                     continue;
                 }
 
@@ -66,7 +70,10 @@ namespace yhb_war3_custom_keys.view {
                         BackColor = page.BackColor,
                         ForeColor = page.ForeColor,
                     };
-                    KeyDefinesToListView.Execute(keyDefines, subPage, entries);
+                    // FIXME
+                    new KeyDefinesToListView(subPage, keyDefines, entries, (lv, item, entry) => {
+                        MessageBox.Show(entry.SectionName);
+                    });
                     ++idx;
                 }
             }
