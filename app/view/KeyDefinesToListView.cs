@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.ComponentModel;
+using System.Text.RegularExpressions;
 using yhb_war3_custom_keys.model;
 
 namespace yhb_war3_custom_keys.view {
@@ -13,10 +14,18 @@ namespace yhb_war3_custom_keys.view {
         private static readonly Brush BRUSH_ROW_FOREGROUND = Brushes.White;
 
         private enum SubItemTag {
+            [Description("Hotkey")]
             Hotkey,
+            [Description("Unhotkey")]
             Unhotkey,
+            [Description("Researchhotkey")]
             Researchhotkey,
+            [Description("Tip")]
             Tip,
+            [Description("Revivetip")]
+            Revivetip,
+            [Description("Awakentip")]
+            Awakentip,
         }
 
         private readonly KeyDefines _keyDefines;
@@ -66,6 +75,8 @@ namespace yhb_war3_custom_keys.view {
             columns.Add("Unhotkey").TextAlign = HorizontalAlignment.Center;
             columns.Add("Researchhotkey").TextAlign = HorizontalAlignment.Center;
             columns.Add("Tip");
+            columns.Add("Revivetip");
+            columns.Add("Awakentip");
 
             foreach (var entry in _entries) {
                 var section = _keyDefines.GetSection(entry.SectionName);
