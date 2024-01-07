@@ -32,8 +32,8 @@ namespace yhb_war3_custom_keys.view {
             InitializeGui(_keyDefines);
         }
 
-        private void OnEditEntry(KeyDefinesCategory.Entry entry) {
-            
+        private void OnListViewDoubleClick(KeyDefinesToListView _, ListViewItem item, KeyDefinesCategory.Entry entry) {
+            FormEdit.ShowModal(this.MdiParent, entry);
         }
 
         private void InitializeGui(KeyDefines keyDefines) {
@@ -70,10 +70,7 @@ namespace yhb_war3_custom_keys.view {
                         BackColor = page.BackColor,
                         ForeColor = page.ForeColor,
                     };
-                    // FIXME
-                    new KeyDefinesToListView(subPage, keyDefines, entries, (lv, item, entry) => {
-                        MessageBox.Show(entry.SectionName);
-                    });
+                    new KeyDefinesToListView(subPage, keyDefines, entries, OnListViewDoubleClick);
                     ++idx;
                 }
             }
