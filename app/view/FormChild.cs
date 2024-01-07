@@ -9,6 +9,8 @@ namespace yhb_war3_custom_keys.view {
         public bool Readonly { get; private set; }
         public bool NeedSave { get; private set; }
 
+        private readonly List<KeyDefinesToListView> _listViews = new(6);
+
         public FormChild() {
             InitializeComponent();
         }
@@ -52,7 +54,7 @@ namespace yhb_war3_custom_keys.view {
                 if (category.KindCount == 1) {
                     IEnumerator<KeyDefinesCategory.Entry[]> it = category.GetEnumerator();
                     it.MoveNext();
-                    new KeyDefinesToListView(page, keyDefines, it.Current, null); // FIXME
+                    CreateNewListView(page, keyDefines, it.Current);
                     continue;
                 }
 
@@ -70,10 +72,14 @@ namespace yhb_war3_custom_keys.view {
                         BackColor = page.BackColor,
                         ForeColor = page.ForeColor,
                     };
-                    new KeyDefinesToListView(subPage, keyDefines, entries, OnListViewDoubleClick);
+                    CreateNewListView(subPage, keyDefines, entries);
                     ++idx;
                 }
             }
+        }
+
+        private void CreateNewListView(TabPage page, KeyDefines keyDefines, IReadOnlyCollection<KeyDefinesCategory.Entry> entries) {
+            this._listViews.Add(new KeyDefinesToListView(page, keyDefines, entries, OnListViewDoubleClick));
         }
 
         private void FormChild_FormClosing(object sender, FormClosingEventArgs e) {
@@ -87,8 +93,14 @@ namespace yhb_war3_custom_keys.view {
                 } else {
                     // Don't close
                     e.Cancel = true;
+                    return;
                 }
             }
+
+            foreach (var lv in this._listViews) {
+                lv.Dispose();
+            }
+            this._listViews.Clear();
         }
     }
 }
