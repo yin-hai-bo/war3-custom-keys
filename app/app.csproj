@@ -8,12 +8,17 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>War3CustomKeys</AssemblyName>
+    <ApplicationIcon>res\images\app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="test\**" />
     <EmbeddedResource Remove="test\**" />
     <None Remove="test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="res\images\app.ico" />
   </ItemGroup>
 
   <ItemGroup>
