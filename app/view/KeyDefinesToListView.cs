@@ -8,10 +8,11 @@ namespace yhb_war3_custom_keys.view {
         private static readonly Pen PEN_GRID_LINE = new Pen(Color.FromArgb(255, 80, 80, 80), 1);
 
         private static readonly Brush BRUSH_HEAD_BACKGROUND = new SolidBrush(Color.FromArgb(255, 40, 40, 50));
-        private static readonly Brush BRUSH_HEAD_FOREGROUND = Brushes.White;
+        private static readonly Brush BRUSH_HEAD_FOREGROUND = new SolidBrush(Color.FromArgb(255, 128, 192, 192));
 
         private static readonly Brush BRUSH_ROW_BACKGROUND = Brushes.Black;
         private static readonly Brush BRUSH_ROW_FOREGROUND = Brushes.White;
+        private static readonly Brush BRUSH_FIRST_COLUMN_FOREGROUND = BRUSH_HEAD_FOREGROUND;
 
         private enum SubItemTag {
             [Description("Hotkey")]
@@ -147,7 +148,7 @@ namespace yhb_war3_custom_keys.view {
                 if (token.HasColor) {
                     brush = new SolidBrush(token.Color);
                 } else {
-                    brush = BRUSH_ROW_FOREGROUND;
+                    brush = e.ColumnIndex == 0 ? BRUSH_FIRST_COLUMN_FOREGROUND : BRUSH_ROW_FOREGROUND;
                 }
 
                 var size = e.Graphics.MeasureString(token.Text, _listView.Font);
@@ -192,7 +193,7 @@ namespace yhb_war3_custom_keys.view {
             e.Graphics.DrawRectangle(PEN_GRID_LINE, e.Bounds);
             e.Graphics.DrawString(
                 _listView.Columns[e.ColumnIndex].Text,
-                new Font(_listView.Font, FontStyle.Bold),
+                _listView.Font,
                 BRUSH_HEAD_FOREGROUND,
                 e.Bounds);
         }
