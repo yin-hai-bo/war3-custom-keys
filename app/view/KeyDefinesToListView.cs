@@ -86,6 +86,8 @@ namespace yhb_war3_custom_keys.view {
                     AddSubItem(row, section.Find("Unhhotkey"), SubItemTag.Unhotkey);
                     AddSubItem(row, section.Find("Researchhotkey"), SubItemTag.Researchhotkey);
                     AddSubItem(row, section.Find("Tip"), SubItemTag.Tip);
+                    AddSubItem(row, section.Find("Revivetip"), SubItemTag.Revivetip);
+                    AddSubItem(row, section.Find("Awakentip"), SubItemTag.Awakentip);
                     row.Tag = entry;
                 }
             }
