@@ -29,20 +29,24 @@ namespace yhb_war3_custom_keys.view {
             Awakentip,
         }
 
+        public string Name { get; }
+
         private readonly KeyDefines _keyDefines;
         private readonly IReadOnlyCollection<KeyDefinesCategory.Entry> _entries;
         private readonly ListView _listView;
 
-        private readonly Action<KeyDefinesToListView, ListViewItem, KeyDefinesCategory.Entry> _doubleClickCallback;
+        private readonly Action<KeyDefinesToListView, ListViewItem, Section> _doubleClickCallback;
 
         private bool _disposed;
 
         public KeyDefinesToListView(
+            string name,
             Control parent,
             KeyDefines keyDefines,
             IReadOnlyCollection<KeyDefinesCategory.Entry> entries,
-            Action<KeyDefinesToListView, ListViewItem, KeyDefinesCategory.Entry> doubleClickCallback
+            Action<KeyDefinesToListView, ListViewItem, Section> doubleClickCallback
         ) {
+            this.Name = name;
             _keyDefines = keyDefines;
             _entries = entries;
             _listView = new() {
@@ -80,7 +84,7 @@ namespace yhb_war3_custom_keys.view {
             columns.Add("Awakentip");
 
             foreach (var entry in _entries) {
-                var section = _keyDefines.GetSection(entry.SectionName);
+                Section? section = _keyDefines.GetSection(entry.SectionName);
                 if (section != null) {
                     var row = _listView.Items.Add(entry.Description);
                     AddSubItem(row, section.Find("Hotkey"), SubItemTag.Hotkey);
@@ -89,7 +93,7 @@ namespace yhb_war3_custom_keys.view {
                     AddSubItem(row, section.Find("Tip"), SubItemTag.Tip);
                     AddSubItem(row, section.Find("Revivetip"), SubItemTag.Revivetip);
                     AddSubItem(row, section.Find("Awakentip"), SubItemTag.Awakentip);
-                    row.Tag = entry;
+                    row.Tag = section;
                 }
             }
             foreach (ColumnHeader col in columns) {
@@ -108,7 +112,7 @@ namespace yhb_war3_custom_keys.view {
         private void OnListViewDoubleClick(object? sender, EventArgs e) {
             if (_listView.SelectedItems != null && _listView.SelectedItems.Count > 0) {
                 var selected = _listView.SelectedItems[0];
-                _doubleClickCallback?.Invoke(this, selected, (KeyDefinesCategory.Entry)selected.Tag);
+                _doubleClickCallback?.Invoke(this, selected, (Section)selected.Tag);
             }
         }
 
@@ -133,14 +137,14 @@ namespace yhb_war3_custom_keys.view {
             }
             DrawBackgroundAndGridLine(e);
 
-            StringFormat sf = StringFormat.GenericTypographic;
-            sf.LineAlignment = StringAlignment.Center;
+            StringFormat stringFormat = StringFormat.GenericTypographic;
+            stringFormat.LineAlignment = StringAlignment.Center;
 
-            if (DrawTextIfAlignCenter(e, sf)) {
+            if (DrawTextIfAlignCenter(e, stringFormat)) {
                 return;
             }
 
-            sf.Alignment = StringAlignment.Near;
+            stringFormat.Alignment = StringAlignment.Near;
             RectangleF bounds = e.Bounds;
             List<TipToken> tokens = TipParser.Execute(e.SubItem.Text);
             foreach (var token in tokens) {
@@ -154,7 +158,7 @@ namespace yhb_war3_custom_keys.view {
                 var size = e.Graphics.MeasureString(token.Text, _listView.Font);
                 RectangleF rc = bounds;
                 rc.Width = size.Width;
-                e.Graphics.DrawString(token.Text, _listView.Font, brush, rc, sf);
+                e.Graphics.DrawString(token.Text, _listView.Font, brush, rc, stringFormat);
                 bounds.X += size.Width;
             }
         }

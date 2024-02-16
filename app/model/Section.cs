@@ -51,7 +51,7 @@ namespace yhb_war3_custom_keys.model {
 
         public string? Find(string key) {
             foreach (var item in _items) {
-                if (item.Key == key) { 
+                if (item.Key == key) {
                     return item.Value;
                 }
             }

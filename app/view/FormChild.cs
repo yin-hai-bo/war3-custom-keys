@@ -34,8 +34,8 @@ namespace yhb_war3_custom_keys.view {
             InitializeGui(_keyDefines);
         }
 
-        private void OnListViewDoubleClick(KeyDefinesToListView _, ListViewItem item, KeyDefinesCategory.Entry entry) {
-            FormEdit.ShowModal(this.MdiParent, entry);
+        private void OnListViewDoubleClick(KeyDefinesToListView listView, ListViewItem item, Section section) {
+            FormEdit.ShowModal(this.MdiParent, listView.Name, section);
         }
 
         private void InitializeGui(KeyDefines keyDefines) {
@@ -54,7 +54,7 @@ namespace yhb_war3_custom_keys.view {
                 if (category.KindCount == 1) {
                     IEnumerator<KeyDefinesCategory.Entry[]> it = category.GetEnumerator();
                     it.MoveNext();
-                    CreateNewListView(page, keyDefines, it.Current);
+                    CreateNewListView(category.Name, page, keyDefines, it.Current);
                     continue;
                 }
 
@@ -67,19 +67,20 @@ namespace yhb_war3_custom_keys.view {
                 };
                 int idx = 0;
                 foreach (KeyDefinesCategory.Entry[] entries in category) {
-                    TabPage subPage = new(subPageNames[idx]) {
+                    string subPageName = subPageNames[idx];
+                    TabPage subPage = new(subPageName) {
                         Parent = tc,
                         BackColor = page.BackColor,
                         ForeColor = page.ForeColor,
                     };
-                    CreateNewListView(subPage, keyDefines, entries);
+                    CreateNewListView($"{category.Name}/{subPageName}", subPage, keyDefines, entries);
                     ++idx;
                 }
             }
         }
 
-        private void CreateNewListView(TabPage page, KeyDefines keyDefines, IReadOnlyCollection<KeyDefinesCategory.Entry> entries) {
-            this._listViews.Add(new KeyDefinesToListView(page, keyDefines, entries, OnListViewDoubleClick));
+        private void CreateNewListView(string name, TabPage page, KeyDefines keyDefines, IReadOnlyCollection<KeyDefinesCategory.Entry> entries) {
+            this._listViews.Add(new KeyDefinesToListView(name, page, keyDefines, entries, OnListViewDoubleClick));
         }
 
         private void FormChild_FormClosing(object sender, FormClosingEventArgs e) {
