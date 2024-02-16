@@ -84,7 +84,7 @@ namespace yhb_war3_custom_keys.view {
                 if (section != null) {
                     var row = _listView.Items.Add(entry.Description);
                     AddSubItem(row, section.Find("Hotkey"), SubItemTag.Hotkey);
-                    AddSubItem(row, section.Find("Unhhotkey"), SubItemTag.Unhotkey);
+                    AddSubItem(row, section.Find("Unhotkey"), SubItemTag.Unhotkey);
                     AddSubItem(row, section.Find("Researchhotkey"), SubItemTag.Researchhotkey);
                     AddSubItem(row, section.Find("Tip"), SubItemTag.Tip);
                     AddSubItem(row, section.Find("Revivetip"), SubItemTag.Revivetip);
