@@ -7,14 +7,14 @@
     /// </summary>
     internal class CommentLine : IElement {
 
-        private readonly string _content;
+        public string Content { get; }
 
         public CommentLine(string content) {
-            this._content = content;
+            this.Content = content;
         }
 
         public void Serialize(TextWriter writer) {
-            writer.WriteLine(this._content);
+            writer.WriteLine(this.Content);
         }
 
         public string? Key => null;

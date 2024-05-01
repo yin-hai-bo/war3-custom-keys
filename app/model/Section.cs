@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections;
+using System.Text.RegularExpressions;
 using yhb_war3_custom_keys.res;
 
 namespace yhb_war3_custom_keys.model {
@@ -14,16 +15,18 @@ namespace yhb_war3_custom_keys.model {
     ///
     /// </summary>
 
-    public class Section : IElement {
+    internal class Section : IElement, IReadOnlyList<IElement> {
 
         private static readonly Regex REGEX = new(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline);
 
         internal readonly string Name;
+        internal readonly string? Description;
 
         private readonly List<IElement> _items = [];
 
-        internal Section(string name) {
+        internal Section(string name, string? description) {
             this.Name = name;
+            this.Description = description;
         }
 
         internal void LoadFromReader(TextLineReader reader, CustomKeysParser parser) {
@@ -32,10 +35,12 @@ namespace yhb_war3_custom_keys.model {
                 if (line == null) {
                     break;
                 }
+
                 if (parser.IsEmptyOrCommentLine(line)) {
                     _items.Add(new CommentLine(line));
                     continue;
                 }
+
                 var match = REGEX.Match(line);
                 if (match.Success) {
                     var key = match.Groups[1].Value;
@@ -69,5 +74,21 @@ namespace yhb_war3_custom_keys.model {
             }
             return null;
         }
+
+        #region IReadOnlyList
+
+        public int Count => _items.Count;
+
+        public IElement this[int index] => _items[index];
+
+        public IEnumerator<IElement> GetEnumerator() {
+            return _items.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() {
+            return this.GetEnumerator();
+        }
+
+        #endregion
     }
 }

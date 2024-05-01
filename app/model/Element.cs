@@ -17,7 +17,6 @@
         /// </summary>
         string? Key { get; }
 
-
         /// <summary>
         /// When I am a key-value pairs (like 'Hotkey=F'), return the value.
         /// If not, return null.
