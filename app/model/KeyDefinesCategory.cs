@@ -4,30 +4,56 @@ using yhb_war3_custom_keys.res;
 namespace yhb_war3_custom_keys.model {
     public static class KeyDefinesCategory {
 
-        public struct Entry {
+        /// <summary>
+        /// Entry in the <see cref="Category"/>.
+        /// </summary>
+        public readonly struct Entry {
+
+            /*
+             // Flare
+             [Afla]
+             Tip=|cffffcc00F|rlare
+             Hotkey=F
+
+             Above contents in the CustomKeys.txt.
+
+            SectionName is "Afla"
+             Descripotion is "Flare"
+            */
+
             public readonly string SectionName;
             public readonly string Description;
+
             public Entry(string secitonName, string caption) {
                 this.SectionName = secitonName;
                 this.Description = caption;
             }
         }
 
+        /// <summary>
+        /// Category or Race. Human, Orc, Undead, Night Elf, Neutral ...
+        /// </summary>
         public class Category : IEnumerable<Entry[]> {
+
+            /// <summary>
+            /// Name of the race, like "Human", "兽人", ....
+            /// </summary>
             public readonly string Name;
 
-            private readonly List<Entry[]> _list = new List<Entry[]>(3);
+            private readonly List<Entry[]> _list = new List<Entry[]>(24);
             public int KindCount => _list.Count;
 
+            /// <summary>
+            /// Construct by race name.
+            /// </summary>
+            /// <param name="name">Category or race name, like "Human", "兽人" ...</param>
             public Category(string name) {
                 this.Name = name;
             }
 
-            public void Add(Entry[] entries) { 
+            public void Add(Entry[] entries) {
                 _list.Add(entries);
             }
-
-
 
             public IEnumerator<Entry[]> GetEnumerator() {
                 return _list.GetEnumerator();

@@ -1,4 +1,10 @@
 ﻿namespace yhb_war3_custom_keys.model {
+
+    /// <summary>
+    /// The comment element.
+    /// No 'Key', no 'Value', and no 'SectionName'.
+    /// Just a comment line.
+    /// </summary>
     internal class CommentLine : IElement {
 
         private readonly string _content;

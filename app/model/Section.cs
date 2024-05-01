@@ -2,13 +2,25 @@
 using yhb_war3_custom_keys.res;
 
 namespace yhb_war3_custom_keys.model {
+
+    /// <summary>
+    /// A section like :<br /><br />
+    ///
+    /// [Ahrl]<br />
+    /// Tip=|cffffcc00G|rather<br />
+    /// Untip=R|cffffcc00e|rturn Resources<br />
+    /// Hotkey=G<br />
+    /// Unhotkey=E<br />
+    ///
+    /// </summary>
+
     public class Section : IElement {
 
         private static readonly Regex REGEX = new(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline);
 
         internal readonly string Name;
 
-        private readonly List<IElement> _items = new();
+        private readonly List<IElement> _items = [];
 
         internal Section(string name) {
             this.Name = name;

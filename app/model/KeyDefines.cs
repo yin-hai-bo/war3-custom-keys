@@ -2,6 +2,9 @@
 
 namespace yhb_war3_custom_keys.model {
 
+    /// <summary>
+    /// The hot key defines
+    /// </summary>
     public class KeyDefines {
 
         private readonly List<IElement> _elements = new();
@@ -9,15 +12,13 @@ namespace yhb_war3_custom_keys.model {
         private KeyDefines() { }
 
         internal static KeyDefines CreateFromFile(string filename) {
-            using (TextLineReader reader = new(new StreamReader(filename))) {
-                return CreateKeyDefines(reader);
-            }
+            using TextLineReader reader = new(new StreamReader(filename));
+            return CreateKeyDefines(reader);
         }
 
         internal static KeyDefines CreateFromString(string str) {
-            using (TextLineReader reader = new(str)) {
-                return CreateKeyDefines(reader);
-            }
+            using TextLineReader reader = new(str);
+            return CreateKeyDefines(reader);
         }
 
         private static KeyDefines CreateKeyDefines(TextLineReader reader) {

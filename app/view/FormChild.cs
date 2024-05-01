@@ -35,7 +35,7 @@ namespace yhb_war3_custom_keys.view {
         }
 
         private void OnListViewDoubleClick(KeyDefinesToListView listView, ListViewItem item, Section section) {
-            FormEdit.ShowModal(this.MdiParent, listView.Name, section);
+            FormEdit.ShowModal(this.MdiParent, $"{listView.CategoryName} - {listView.Group}", section);
         }
 
         private void InitializeGui(KeyDefines keyDefines) {
@@ -54,7 +54,7 @@ namespace yhb_war3_custom_keys.view {
                 if (category.KindCount == 1) {
                     IEnumerator<KeyDefinesCategory.Entry[]> it = category.GetEnumerator();
                     it.MoveNext();
-                    CreateNewListView(category.Name, page, keyDefines, it.Current);
+                    CreateNewListView(category.Name, "", page, keyDefines, it.Current);
                     continue;
                 }
 
@@ -73,14 +73,14 @@ namespace yhb_war3_custom_keys.view {
                         BackColor = page.BackColor,
                         ForeColor = page.ForeColor,
                     };
-                    CreateNewListView($"{category.Name}/{subPageName}", subPage, keyDefines, entries);
+                    CreateNewListView(category.Name, subPageName, subPage, keyDefines, entries);
                     ++idx;
                 }
             }
         }
 
-        private void CreateNewListView(string name, TabPage page, KeyDefines keyDefines, IReadOnlyCollection<KeyDefinesCategory.Entry> entries) {
-            this._listViews.Add(new KeyDefinesToListView(name, page, keyDefines, entries, OnListViewDoubleClick));
+        private void CreateNewListView(string categoryName, string group, TabPage page, KeyDefines keyDefines, IReadOnlyCollection<KeyDefinesCategory.Entry> entries) {
+            this._listViews.Add(new KeyDefinesToListView(categoryName, group, page, keyDefines, entries, OnListViewDoubleClick));
         }
 
         private void FormChild_FormClosing(object sender, FormClosingEventArgs e) {

@@ -1,7 +1,8 @@
 ﻿namespace yhb_war3_custom_keys.model {
     internal class KeyValue : IElement {
-        public readonly string Key;
-        public readonly string Value;
+        public string? SectionName => null;
+        public string? Key { get; }
+        public string? Value { get; }
 
         public KeyValue(string key, string value) {
             this.Key = key;
@@ -12,8 +13,5 @@
             writer.WriteLine($"{this.Key}={this.Value}");
         }
 
-        string? IElement.Key => this.Key;
-        string? IElement.Value => this.Value;
-        public string? SectionName => null;
     }
 }

@@ -29,7 +29,8 @@ namespace yhb_war3_custom_keys.view {
             Awakentip,
         }
 
-        public string Name { get; }
+        public string CategoryName { get; }
+        public string Group { get; }
 
         private readonly KeyDefines _keyDefines;
         private readonly IReadOnlyCollection<KeyDefinesCategory.Entry> _entries;
@@ -39,14 +40,26 @@ namespace yhb_war3_custom_keys.view {
 
         private bool _disposed;
 
-        public KeyDefinesToListView(
-            string name,
+        /// <summary>
+        /// Construction.
+        /// </summary>
+        /// <param name="categoryName">The category name, like "Human", "Orc", "Common", ...</param>
+        /// <param name="group">Group name, like "Heroes", "Units", ...</param>
+        /// <param name="parent">Parent UI component</param>
+        /// <param name="keyDefines"><see cref="KeyDefines"/></param>
+        /// <param name="entries">The list of <see cref="KeyDefinesCategory.Entry"/></param>
+        /// <param name="doubleClickCallback">Callback when user double click list view.</param>
+        internal KeyDefinesToListView(
+            string categoryName,
+            string group,
             Control parent,
             KeyDefines keyDefines,
             IReadOnlyCollection<KeyDefinesCategory.Entry> entries,
             Action<KeyDefinesToListView, ListViewItem, Section> doubleClickCallback
         ) {
-            this.Name = name;
+            this.CategoryName = categoryName;
+            this.Group = group;
+
             _keyDefines = keyDefines;
             _entries = entries;
             _listView = new() {
