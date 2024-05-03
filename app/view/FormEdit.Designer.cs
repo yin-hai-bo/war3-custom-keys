@@ -24,6 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             groupBox1 = new GroupBox();
+            label1 = new Label();
+            richTipPreview = new RichTextBox();
             editTip = new TextBox();
             labelTip = new Label();
             editUnhotkey = new TextBox();
@@ -36,6 +38,8 @@
             // groupBox1
             // 
             groupBox1.BackColor = SystemColors.Control;
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(richTipPreview);
             groupBox1.Controls.Add(editTip);
             groupBox1.Controls.Add(labelTip);
             groupBox1.Controls.Add(editUnhotkey);
@@ -45,23 +49,43 @@
             groupBox1.ForeColor = SystemColors.ControlText;
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(549, 208);
-            groupBox1.TabIndex = 1;
+            groupBox1.Size = new Size(549, 301);
+            groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
+            // label1
+            // 
+            label1.ForeColor = SystemColors.ControlText;
+            label1.Location = new Point(18, 188);
+            label1.Name = "label1";
+            label1.Size = new Size(80, 17);
+            label1.TabIndex = 6;
+            label1.Text = "Tip Preview";
+            label1.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // richTipPreview
+            // 
+            richTipPreview.BackColor = Color.Black;
+            richTipPreview.ForeColor = Color.White;
+            richTipPreview.Location = new Point(106, 185);
+            richTipPreview.Name = "richTipPreview";
+            richTipPreview.ReadOnly = true;
+            richTipPreview.Size = new Size(380, 96);
+            richTipPreview.TabIndex = 7;
+            richTipPreview.Text = "";
+            // 
             // editTip
             // 
-            editTip.BackColor = Color.Black;
-            editTip.ForeColor = Color.White;
+            editTip.BackColor = SystemColors.Window;
+            editTip.ForeColor = SystemColors.WindowText;
             editTip.Location = new Point(104, 88);
             editTip.MaxLength = 1;
             editTip.Multiline = true;
             editTip.Name = "editTip";
             editTip.ScrollBars = ScrollBars.Vertical;
             editTip.Size = new Size(382, 82);
-            editTip.TabIndex = 6;
-            editTip.TextAlign = HorizontalAlignment.Center;
+            editTip.TabIndex = 5;
             // 
             // labelTip
             // 
@@ -69,7 +93,7 @@
             labelTip.Location = new Point(18, 91);
             labelTip.Name = "labelTip";
             labelTip.Size = new Size(80, 17);
-            labelTip.TabIndex = 5;
+            labelTip.TabIndex = 4;
             labelTip.Text = "Tip";
             labelTip.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -79,7 +103,7 @@
             editUnhotkey.MaxLength = 1;
             editUnhotkey.Name = "editUnhotkey";
             editUnhotkey.Size = new Size(65, 23);
-            editUnhotkey.TabIndex = 4;
+            editUnhotkey.TabIndex = 3;
             editUnhotkey.TextAlign = HorizontalAlignment.Center;
             // 
             // labelUnHotKey
@@ -88,7 +112,7 @@
             labelUnHotKey.Location = new Point(18, 62);
             labelUnHotKey.Name = "labelUnHotKey";
             labelUnHotKey.Size = new Size(80, 17);
-            labelUnHotKey.TabIndex = 3;
+            labelUnHotKey.TabIndex = 2;
             labelUnHotKey.Text = "UnHotkey";
             labelUnHotKey.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -98,7 +122,7 @@
             editHotky.MaxLength = 1;
             editHotky.Name = "editHotky";
             editHotky.Size = new Size(65, 23);
-            editHotky.TabIndex = 2;
+            editHotky.TabIndex = 1;
             editHotky.TextAlign = HorizontalAlignment.Center;
             // 
             // labelHotKey
@@ -140,5 +164,7 @@
         private Label labelUnHotKey;
         private TextBox editTip;
         private Label labelTip;
+        private RichTextBox richTipPreview;
+        private Label label1;
     }
 }

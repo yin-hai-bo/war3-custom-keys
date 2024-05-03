@@ -20,7 +20,27 @@ namespace yhb_war3_custom_keys.view {
         private void FormEdit_Load(object sender, EventArgs e) {
             editHotky.Text = _section.Find("Hotkey");
             editUnhotkey.Text = _section.Find("UnhotKey");
-            editTip.Text = _section.Find("Tip");
+            SetTip();
+        }
+
+        private void SetTip() {
+            string? tip = _section.Find("Tip");
+            if (tip == null) {
+                editTip.Clear();
+                richTipPreview.Clear();
+                return;
+            }
+
+            editTip.Text = tip;
+
+            List<TipToken> tokens = TipParser.Execute(tip);
+            foreach (TipToken token in tokens) {
+                richTipPreview.AppendText(token.Text);
+                int len = token.Text.Length;
+                richTipPreview.SelectionStart = richTipPreview.Text.Length - len;
+                richTipPreview.SelectionLength = len;
+                richTipPreview.SelectionColor = token.Color;
+            }
         }
     }
 }
