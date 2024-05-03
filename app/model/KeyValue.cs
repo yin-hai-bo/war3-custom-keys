@@ -1,4 +1,5 @@
 ﻿namespace yhb_war3_custom_keys.model {
+
     internal class KeyValue : IElement {
         public string? SectionName => null;
         public string? Key { get; }
@@ -11,6 +12,10 @@
 
         public void Serialize(TextWriter writer) {
             writer.WriteLine($"{this.Key}={this.Value}");
+        }
+
+        public override string ToString() {
+            return $"{Key}={Value}";
         }
 
     }

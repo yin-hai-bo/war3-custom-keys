@@ -64,7 +64,7 @@ namespace yhb_war3_custom_keys.model {
 
         public string? Key => null;
         public string? Value => null;
-        public string? SectionName => this.Name;
+        public string SectionName => this.Name;
 
         public string? Find(string key) {
             foreach (var item in _items) {
@@ -90,5 +90,9 @@ namespace yhb_war3_custom_keys.model {
         }
 
         #endregion
+
+        public override string ToString() {
+            return $"([{SectionName}] {Description} Count={Count})";
+        }
     }
 }

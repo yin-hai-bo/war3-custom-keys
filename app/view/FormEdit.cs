@@ -19,6 +19,8 @@ namespace yhb_war3_custom_keys.view {
 
         private void FormEdit_Load(object sender, EventArgs e) {
             editHotky.Text = _section.Find("Hotkey");
+            editUnhotkey.Text = _section.Find("UnhotKey");
+            editTip.Text = _section.Find("Tip");
         }
     }
 }

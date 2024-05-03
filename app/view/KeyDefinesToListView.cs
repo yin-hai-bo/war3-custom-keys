@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using yhb_war3_custom_keys.model;
 
@@ -217,24 +218,22 @@ namespace yhb_war3_custom_keys.view {
     }
 
     public readonly struct TipToken {
+        public static readonly Color DEFAULT_COLOR = Color.White;
+
         public readonly bool HasColor;
         public readonly Color Color;
         public readonly string Text;
-        public TipToken(string text, Color color) {
+
+        public TipToken(string text, bool hasColor, Color color) {
             this.Text = text;
-            this.Color = color;
-            this.HasColor = true;
-        }
-        public TipToken(string text) {
-            this.Text = text;
-            this.Color = Color.White;
-            this.HasColor = false;
+            this.Color = hasColor ? color : DEFAULT_COLOR;
+            this.HasColor = hasColor;
         }
     }
 
     public static class TipParser {
-        private static readonly Regex REGEX_TIP = new Regex(
-            @"\|c([a-fA-F0-9]{8})(.*?)\|r",
+        private static readonly Regex REGEX_TIP = new(
+            @"(?:\|c([a-fA-F0-9]{8}))|(?:\|r)",
             RegexOptions.Compiled | RegexOptions.Singleline
         );
 
@@ -243,28 +242,50 @@ namespace yhb_war3_custom_keys.view {
         }
 
         public static List<TipToken> Execute(string text) {
-            List<TipToken> result = new(4);
+            List<TipToken> result = new(8);
             var matches = REGEX_TIP.Matches(text);
             if (matches.Count <= 0) {
-                result.Add(new TipToken(text));
+                result.Add(new TipToken(text, false, TipToken.DEFAULT_COLOR));
                 return result;
             }
 
+            Color color = TipToken.DEFAULT_COLOR;
+            bool hasColor = false;
+
             int idx = 0;
-            foreach (Match m in matches) {
-                int beforeColorLen = m.Index - idx;
-                if (beforeColorLen > 0) {
-                    result.Add(new TipToken(text.Substring(idx, beforeColorLen)));
+            for (int i = 0, matchesCount = matches.Count; i < matchesCount; ++i) {
+                Match m = matches[i];
+                int lenBeforeKey = m.Index - idx;
+                if (lenBeforeKey > 0) {
+                    result.Add(new TipToken(text.Substring(idx, lenBeforeKey), hasColor, color));
                 }
-                string coloredText = m.Groups[2].Value;
-                if (coloredText.Length > 0) {
-                    Color color = ToColor(m.Groups[1].Value);
-                    result.Add(new TipToken(coloredText, color));
+
+                // The next fragment.
+                int beginOfFragment = m.Index + m.Length;
+                int endOfFragment;
+                if (i < matchesCount - 1) {
+                    endOfFragment = matches[i + 1].Index;
+                } else {
+                    endOfFragment = text.Length;
                 }
-                idx += m.Length + beforeColorLen;
+
+                if (m.Length == 10) {
+                    Debug.Assert(m.Value.StartsWith("|c"));
+                    hasColor = true;
+                    color = ToColor(m.Groups[1].Value);
+                } else {
+                    Debug.Assert("|r" == m.Value);
+                    hasColor = false;
+                }
+                if (endOfFragment > beginOfFragment) {
+                    result.Add(new TipToken(text.Substring(beginOfFragment, endOfFragment - beginOfFragment), hasColor, color));
+                }
+
+                idx = endOfFragment;
             }
+
             if (idx < text.Length) {
-                result.Add(new TipToken(text.Substring(idx)));
+                result.Add(new TipToken(text.Substring(idx), hasColor, color));
             }
 
             return result;
