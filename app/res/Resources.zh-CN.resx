@@ -201,4 +201,7 @@
   <data name="S_WARNING" xml:space="preserve">
     <value>警告</value>
   </data>
+  <data name="S_INVALID_HOTKEY_DEFINE" xml:space="preserve">
+    <value>无效的热键定义</value>
+  </data>
 </root>

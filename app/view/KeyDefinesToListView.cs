@@ -118,15 +118,19 @@ namespace yhb_war3_custom_keys.view {
         public void Dispose() {
             if (!_disposed) {
                 _disposed = true;
-                _listView.Parent.Controls.Remove(_listView);
-                _listView.Dispose();
+                if (_listView != null) {
+                    _listView.Parent?.Controls.Remove(_listView);
+                    _listView.Dispose();
+                }
             }
         }
 
         private void OnListViewDoubleClick(object? sender, EventArgs e) {
             if (_listView.SelectedItems != null && _listView.SelectedItems.Count > 0) {
                 var selected = _listView.SelectedItems[0];
-                _doubleClickCallback?.Invoke(this, selected, (Section)selected.Tag);
+                if (selected?.Tag != null) {
+                    _doubleClickCallback?.Invoke(this, selected, (Section)selected.Tag);
+                }
             }
         }
 

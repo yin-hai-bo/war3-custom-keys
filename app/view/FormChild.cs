@@ -35,7 +35,7 @@ namespace yhb_war3_custom_keys.view {
         }
 
         private void OnListViewDoubleClick(KeyDefinesToListView listView, ListViewItem item, Section section) {
-            FormEdit.ShowModal(this.MdiParent, $"{listView.CategoryName} - {listView.Group}", section);
+            FormEdit.ShowModal(this.MdiParent ?? this, $"{listView.CategoryName} - {listView.Group}", section);
         }
 
         private void InitializeGui(KeyDefines keyDefines) {

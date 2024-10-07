@@ -80,7 +80,8 @@ namespace yhb_war3_custom_keys.res {
         ///
         /////attack
         ///[CmdAttack]
-        ///Tip=|cffffcc [rest of string was truncated]&quot;;.
+        ///Tip=|cffffcc00A|rttack
+        ///Hotkey=A [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CustomKeysSample {
             get {
@@ -198,6 +199,15 @@ namespace yhb_war3_custom_keys.res {
         internal static string S_INVALID_CMDLINE {
             get {
                 return ResourceManager.GetString("S_INVALID_CMDLINE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid hotkey define.
+        /// </summary>
+        internal static string S_INVALID_HOTKEY_DEFINE {
+            get {
+                return ResourceManager.GetString("S_INVALID_HOTKEY_DEFINE", resourceCulture);
             }
         }
         
