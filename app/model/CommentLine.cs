@@ -20,5 +20,10 @@
         public string? Key => null;
         public string? Value => null;
         public string? SectionName => null;
+        IElement IElement.CloneSelf() => CloneSelf();
+
+        public CommentLine CloneSelf() {
+            return new CommentLine(this.Content);
+        }
     }
 }

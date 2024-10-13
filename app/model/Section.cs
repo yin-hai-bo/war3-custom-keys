@@ -15,9 +15,7 @@ namespace yhb_war3_custom_keys.model {
     ///
     /// </summary>
 
-    internal class Section : IElement, IReadOnlyList<IElement> {
-
-        private static readonly Regex REGEX = new(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline);
+    internal partial class Section : IElement, IReadOnlyList<IElement> {
 
         internal readonly string Name;
         internal readonly string? Description;
@@ -41,7 +39,7 @@ namespace yhb_war3_custom_keys.model {
                     continue;
                 }
 
-                var match = REGEX.Match(line);
+                var match = GeneratedRegex().Match(line);
                 if (match.Success) {
                     var key = match.Groups[1].Value;
                     var value = match.Groups[2].Value.Trim();
@@ -62,9 +60,20 @@ namespace yhb_war3_custom_keys.model {
             }
         }
 
-        public string? Key => null;
-        public string? Value => null;
-        public string SectionName => this.Name;
+        #region IElement
+        string? IElement.Key => null;
+        string? IElement.Value => null;
+        string IElement.SectionName => this.Name;
+        IElement IElement.CloneSelf() => this.CloneSelf();
+        #endregion
+
+        public Section CloneSelf() {
+            Section result = new(this.Name, this.Description);
+            foreach (IElement e in this._items) {
+                result._items.Add(e.CloneSelf());
+            }
+            return result;
+        }
 
         public string? Find(string key) {
             foreach (var item in _items) {
@@ -92,7 +101,10 @@ namespace yhb_war3_custom_keys.model {
         #endregion
 
         public override string ToString() {
-            return $"([{SectionName}] {Description} Count={Count})";
+            return $"([{Name}] {Description} Count={Count})";
         }
+
+        [GeneratedRegex(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline)]
+        private static partial Regex GeneratedRegex();
     }
 }

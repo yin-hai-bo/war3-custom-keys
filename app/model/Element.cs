@@ -22,5 +22,10 @@
         /// If not, return null.
         /// </summary>
         string? Value { get; }
+
+        /// <summary>
+        /// Clone a new object instance from self.
+        /// </summary>
+        IElement CloneSelf();
     }
 }
