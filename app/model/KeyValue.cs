@@ -22,6 +22,20 @@
             return $"{_key}={_value}";
         }
 
+        public override bool Equals(object? obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj is not KeyValue other) {
+                return false;
+            }
+            return this._key == other._key && this._value == other._value;
+        }
+
+        public override int GetHashCode() {
+            return HashCode.Combine(this._key, this._value);
+        }
+
         public KeyValue CloneSelf() {
             return new KeyValue(_key, _value);
         }

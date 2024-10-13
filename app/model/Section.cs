@@ -14,7 +14,6 @@ namespace yhb_war3_custom_keys.model {
     /// Unhotkey=E<br />
     ///
     /// </summary>
-
     internal partial class Section : IElement, IReadOnlyList<IElement> {
 
         internal readonly string Name;
@@ -102,6 +101,30 @@ namespace yhb_war3_custom_keys.model {
 
         public override string ToString() {
             return $"([{Name}] {Description} Count={Count})";
+        }
+
+        public override bool Equals(object? obj) {
+            if (obj == this) { return true; }
+            if (obj is not Section other) {
+                return false;
+            }
+            if (this.Name != other.Name || this.Description != other.Description) {
+                return false;
+            }
+            if (this._items == other._items) {
+                return true;
+            }
+            if (_items.Count != other._items.Count) { return false; }
+            for (int i = 0, len = _items.Count; i < len; ++i) {
+                if (!_items[i].Equals(other._items[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public override int GetHashCode() {
+            return HashCode.Combine(this.Name, this.Description, this._items.Count);
         }
 
         [GeneratedRegex(@"(\w+)\s*=(.*)", RegexOptions.Compiled | RegexOptions.Singleline)]

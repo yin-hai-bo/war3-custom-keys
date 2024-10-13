@@ -25,5 +25,15 @@
         public CommentLine CloneSelf() {
             return new CommentLine(this.Content);
         }
+
+        public override bool Equals(object? obj) {
+            if (obj == this) return true;
+            if (obj is not CommentLine other) return false;
+            return this.Content == other.Content;
+        }
+
+        public override int GetHashCode() {
+            return this.Content.GetHashCode();
+        }
     }
 }
